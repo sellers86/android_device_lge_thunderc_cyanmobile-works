@@ -76,10 +76,11 @@ extern "C" {
 
 #define DEFAULT_PICTURE_WIDTH  1024
 #define DEFAULT_PICTURE_HEIGHT 768
-#define THUMBNAIL_BUFFER_SIZE (THUMBNAIL_WIDTH * THUMBNAIL_HEIGHT * 3/2)
+#define THUMBNAIL_BUFFER_SIZE (THUMBNAIL_WIDTH * THUMBNAIL_HEIGHT * 1.5)
 #define MAX_ZOOM_LEVEL 6
+#define ZOOM_STEP 10
 #define NOT_FOUND -1
-// Number of video buffers held by kernel (initially 1,2, and 3)
+// Number of video buffers held by kernel (initially 1, 2, and 3)
 #define ACTIVE_VIDEO_BUFFERS 3
 
 #if DLOPEN_LIBMMCAMERA
@@ -2061,7 +2062,7 @@ void QualcommCameraHardware::runVideoThread(void *data)
                 else
                 {
                     write(file_fd, (const void *)vframe->buffer,
-                        vframe->cbcr_off * 3 / 2);
+                        vframe->cbcr_off * 1.5);
                 }
                 close(file_fd);
           }
@@ -2162,7 +2163,7 @@ bool QualcommCameraHardware::initPreview()
     mInSnapshotModeWaitLock.unlock();
 
     int cnt = 0;
-    mPreviewFrameSize = previewWidth * previewHeight * 3/2;
+    mPreviewFrameSize = previewWidth * previewHeight * 1.5;
     dstOffset = 0;
     mPreviewHeap = new PmemPool("/dev/pmem_adsp",
                                 MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
@@ -2354,7 +2355,7 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
             mDimension.ui_thumbnail_height);
 
     thumbnailBufferSize = mDimension.ui_thumbnail_width *
-                          mDimension.ui_thumbnail_height * 3 / 2;
+                          mDimension.ui_thumbnail_height * 1.5;
 
     // mDimension will be filled with thumbnail_width, thumbnail_height,
     // orig_picture_dx, and orig_picture_dy after this function call. We need to
@@ -2372,12 +2373,12 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
     }
 
     // Snapshot
-    mRawSize = rawWidth * rawHeight * 3 / 2;
+    mRawSize = rawWidth * rawHeight * 1.5;
 
     if( mCurrentTarget == TARGET_MSM7627 )
-             mJpegMaxSize = CEILING16(rawWidth) * CEILING16(rawHeight) * 3 / 2;
+             mJpegMaxSize = CEILING16(rawWidth) * CEILING16(rawHeight) * 1.5;
     else
-             mJpegMaxSize = rawWidth * rawHeight * 3 / 2;
+             mJpegMaxSize = rawWidth * rawHeight * 1.5;
 
     LOGV("initRaw: initializing mRawHeap.");
     mRawHeap =
@@ -2611,7 +2612,7 @@ status_t QualcommCameraHardware::startPreviewInternal()
         mParameters.set("zoom-supported", "false");
         mMaxZoom = 0;
     }
-    mParameters.set("max-zoom",mMaxZoom);
+    mParameters.set("max-zoom", mMaxZoom / ZOOM_STEP);
 
     LOGV("startPreviewInternal X");
     return NO_ERROR;
@@ -4260,7 +4261,6 @@ status_t QualcommCameraHardware::setZoom(const CameraParameters& params)
     // size is. Ex: zoom level 1 is always 1.2x, zoom level 2 is 1.44x, etc. So,
     // we need to have a fixed maximum zoom value and do read it from the
     // driver.
-    static const int ZOOM_STEP = 10;
     int32_t zoom_level = params.getInt("zoom");
 
     LOGV("Set zoom=%d", zoom_level);

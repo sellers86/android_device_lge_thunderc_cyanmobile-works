@@ -22,13 +22,9 @@ PRODUCT_PACKAGES += \
     e2fsck \
     SpareParts \
     CMWallpapers \
-    LiveWallpapers \
     LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    VisualizationWallpapers
 
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
-
 
 DISABLE_DEXPREOPT := false
 
@@ -199,7 +195,13 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/thunderc/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik \
 
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+# Apps
+PRODUCT_COPY_FILES += \
+    device/huawei/ascend/include/apps/LauncherPro.apk:system/app/LauncherPro.apk \
+
+# Let's use our own GPS config file
+PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
+
 $(call inherit-product, build/target/product/full.mk)
 
 # We don't need to pull in the languages_full.mk manually because it'll get clobbered anyhow by full.mk
