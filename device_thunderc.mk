@@ -198,6 +198,7 @@ PRODUCT_COPY_FILES += \
 # Apps
 PRODUCT_COPY_FILES += \
     device/huawei/ascend/include/apps/LauncherPro.apk:system/app/LauncherPro.apk \
+    device/huawei/ascend/include/apps/Vending.apk:system/app/Vending.apk \
 
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
