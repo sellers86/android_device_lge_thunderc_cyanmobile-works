@@ -4042,10 +4042,14 @@ status_t QualcommCameraHardware::setExposureCompensation(const CameraParameters&
 
   mParameters.set(CameraParameters::KEY_EXPOSURE_COMPENSATION, expcomp);
 
+<<<<<<< HEAD
   if(!strcmp(sensorType->name, "3mp"))
     expcomp+=4;
   else
     expcomp+=2;
+=======
+        expcomp += 5;
+>>>>>>> upstream/gingerbread
         bool ret = native_set_parm(CAMERA_SET_PARM_EXPOSURE_COMPENSATION, sizeof(expcomp),
                                        (void *)&expcomp);
 

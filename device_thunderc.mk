@@ -203,7 +203,7 @@ PRODUCT_COPY_FILES += \
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/small_base.mk)
 
 # We don't need to pull in the languages_full.mk manually because it'll get clobbered anyhow by full.mk
 # mdpi goes last so that the janky default locale/region code can pick a sane default
