@@ -97,10 +97,6 @@ qemu.sf.lcd_density=160
 ro.sf.hwrotation=0
 ro.sf.lcd_density=160
 
-# Market Info
-ro.product.model=VM670
-ro.product.brand=VirginMobile
-
 # V6 SuperCharger settings
 ro.ril.hsxpa=3
 ro.ril.gprsclass=12
