@@ -384,8 +384,8 @@
     <string name="no_change">No changes were made.</string>
     <!-- Call settings screen, "Voicemail" provider setting summary text when no provider is selected -->
     <string name="sum_voicemail_choose_provider">Choose voicemail service</string>
-    <!-- Call settings screen, "Voicemail" screen, default option - Virgin Mobile -->
-    <string name="voicemail_default">Virgin Mobile</string>
+    <!-- Call settings screen, "Voicemail" screen, default option - Cricket -->
+    <string name="voicemail_default">Cricket</string>
 
     <!-- networks setting strings -->
     <!-- Mobile network settings screen title -->

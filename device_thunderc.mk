@@ -259,7 +259,7 @@ ifeq ($(SUB_MODEL),LW690)
     # We're on Cricket (In progress)
     CDMA_GOOGLE_BASE := android-cricket-us
     CDMA_CARRIER_ALPHA := Cricket
-    CDMA_CARRIER_NUMERIC := 310016
+    CDMA_CARRIER_NUMERIC := 310000
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
 endif
 
