@@ -199,11 +199,13 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
     device/lge/thunderc/files/apps/GoogleBackupTransport.apk:system/app/GoogleBackupTransport.apk \
     device/lge/thunderc/files/apps/GoogleCalendarSyncAdapter.apk:system/app/GoogleCalendarSyncAdapter.apk \
+    device/lge/thunderc/files/apps/GoogleContactsSyncAdapter.apk:system/app/GoogleContactsSyncAdapter.apk \
     device/lge/thunderc/files/apps/GoogleServicesFramework.apk:system/app/GoogleServicesFramework.apk \
     device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
     device/lge/thunderc/files/apps/MediaUploader.apk:system/app/MediaUploader.apk \
     device/lge/thunderc/files/apps/OneTimeInitializer.apk:system/app/OneTimeInitializer.apk \
     device/lge/thunderc/files/apps/Vending.apk:system/app/Vending.apk \
+    device/lge/thunderc/files/apps/libvoicesearch.so:system/lib/libvoicesearch.so \
 
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
