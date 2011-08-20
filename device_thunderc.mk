@@ -211,9 +211,11 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/apps/Vending.apk:system/app/Vending.apk \
     device/lge/thunderc/files/apps/libvoicesearch.so:system/lib/libvoicesearch.so \
 
+ifeq ($(SUB_MODEL),LW690)
 # MMS fix
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/sqlite3:system/xbin/sqlite3 \
+    device/lge/thunderc/files/sqlite3:system/xbin/sqlite3
+endif
 
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
