@@ -10,6 +10,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_PACKAGES += \
+    gps.thunderc \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
@@ -23,8 +24,11 @@ PRODUCT_PACKAGES += \
     CMWallpapers \
     LiveWallpapersPicker \
 
+<<<<<<< HEAD
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
+=======
+>>>>>>> upstream/gingerbread
 DISABLE_DEXPREOPT := false
 
 # Backlight
@@ -37,7 +41,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    device/lge/thunderc/files/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
 
 # Board-specific init (does not support charging in "power off" state yet)
@@ -64,7 +68,7 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
     device/lge/thunderc/files/etc/init.local.rc:/system/etc/init.local.rc
 
-# 2D (using proprietary because of poor perfomance of open source libs)
+# 2D (using proprietary because of poor performance of open source libs)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
@@ -91,7 +95,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
 
-# Wifi
+# WiFi
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/kernel/$(SUB_MODEL)/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/thunderc/files/kernel/$(SUB_MODEL)/tun.ko:system/lib/modules/tun.ko \
@@ -108,7 +112,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/lge/thunderc/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libaudioeq.so:system/lib/libaudioeq.so \
     device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
@@ -180,10 +184,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/cnd:system/bin/cnd
 
+<<<<<<< HEAD
 # Bluetooth
 #PRODUCT_COPY_FILES += \
 #    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/bin/BCM4325D1_004.002.004.0218.0248.hcd
 
+=======
+>>>>>>> upstream/gingerbread
 # Kernel modules
 # PRODUCT_COPY_FILES += \
 #    device/lge/thunderc/files/kernel/$(SUB_MODEL)/ext2.ko:system/lib/modules/ext2.ko \
@@ -216,12 +223,10 @@ $(call inherit-product, build/target/product/small_base.mk)
 # mdpi goes last so that the janky default locale/region code can pick a sane default
 PRODUCT_LOCALES += mdpi
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_thunderc
 PRODUCT_BRAND := VirginMobile
 PRODUCT_DEVICE := thunderc
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=thunderc
 
 ifeq ($(SUB_MODEL),VS660)
     # We're on Verizon (TODO)
@@ -235,6 +240,7 @@ ifeq ($(SUB_MODEL),LS670)
     CDMA_GOOGLE_BASE := android-sprint-us
     CDMA_CARRIER_ALPHA := Sprint
     CDMA_CARRIER_NUMERIC := 310120
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
 endif
 
 ifeq ($(SUB_MODEL),VM670)
@@ -259,8 +265,13 @@ ifeq ($(SUB_MODEL),LW690)
     # We're on Cricket (In progress)
     CDMA_GOOGLE_BASE := android-cricket-us
     CDMA_CARRIER_ALPHA := Cricket
+<<<<<<< HEAD
     CDMA_CARRIER_NUMERIC := 310000
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+=======
+    CDMA_CARRIER_NUMERIC := 310016
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0301.hcd
+>>>>>>> upstream/gingerbread
 endif
 
 ifeq ($(SUB_MODEL),MS690)
@@ -268,7 +279,11 @@ ifeq ($(SUB_MODEL),MS690)
     CDMA_GOOGLE_BASE := android-metropcs-us
     CDMA_CARRIER_ALPHA := MetroPCS
     CDMA_CARRIER_NUMERIC := 311660
+<<<<<<< HEAD
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+=======
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
+>>>>>>> upstream/gingerbread
 endif
 
 # Bluetooth
