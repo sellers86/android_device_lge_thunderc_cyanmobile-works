@@ -214,7 +214,8 @@ PRODUCT_COPY_FILES += \
 ifeq ($(SUB_MODEL),LW690)
 # MMS fix
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/sqlite3:system/xbin/sqlite3
+    device/lge/thunderc/files/sqlite3:system/xbin/sqlite3 \
+    device/lge/thunderc/files/apps/Mms.apk:system/app/Mms.apk
 endif
 
 # Let's use our own GPS config file
