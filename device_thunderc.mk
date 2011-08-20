@@ -14,7 +14,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
-    gps.thunderc \
     bdaddr_read \
     flash_image \
     dump_image \
@@ -24,11 +23,6 @@ PRODUCT_PACKAGES += \
     CMWallpapers \
     LiveWallpapersPicker \
 
-<<<<<<< HEAD
-PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
-
-=======
->>>>>>> upstream/gingerbread
 DISABLE_DEXPREOPT := false
 
 # Backlight
@@ -78,6 +72,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/sensors.thunderc.so:system/lib/hw/sensors.thunderc.so \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/ami304d:system/bin/ami304d \
+
+# GPS
+PRODUCT_COPY_FILES += \
+    device/lge/thunderc/files/etc/loc_parameter.ini:system/etc/loc_parameter.ini \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc_api.so:system/lib/libloc_api.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libgps.so:system/lib/libgps.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc.so:system/lib/libloc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc.so:obj/lib/libloc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libcommondefs.so:system/lib/libcommondefs.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc-rpc.so:system/lib/libloc-rpc.so
 
 # 3D
 PRODUCT_COPY_FILES += \
@@ -184,13 +188,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/cnd:system/bin/cnd
 
-<<<<<<< HEAD
-# Bluetooth
-#PRODUCT_COPY_FILES += \
-#    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/bin/BCM4325D1_004.002.004.0218.0248.hcd
-
-=======
->>>>>>> upstream/gingerbread
 # Kernel modules
 # PRODUCT_COPY_FILES += \
 #    device/lge/thunderc/files/kernel/$(SUB_MODEL)/ext2.ko:system/lib/modules/ext2.ko \
@@ -265,13 +262,8 @@ ifeq ($(SUB_MODEL),LW690)
     # We're on Cricket (In progress)
     CDMA_GOOGLE_BASE := android-cricket-us
     CDMA_CARRIER_ALPHA := Cricket
-<<<<<<< HEAD
     CDMA_CARRIER_NUMERIC := 310000
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
-=======
-    CDMA_CARRIER_NUMERIC := 310016
-    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0301.hcd
->>>>>>> upstream/gingerbread
 endif
 
 ifeq ($(SUB_MODEL),MS690)
@@ -279,11 +271,7 @@ ifeq ($(SUB_MODEL),MS690)
     CDMA_GOOGLE_BASE := android-metropcs-us
     CDMA_CARRIER_ALPHA := MetroPCS
     CDMA_CARRIER_NUMERIC := 311660
-<<<<<<< HEAD
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
-=======
-    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
->>>>>>> upstream/gingerbread
 endif
 
 # Bluetooth
