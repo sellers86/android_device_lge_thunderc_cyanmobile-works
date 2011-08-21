@@ -28,10 +28,6 @@ BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := thunderc
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
-
 # Using GPSSHIM so that we can use the LG/Qualcomm binary blobs because
 # the open source stuff seems to be buggy, and Qualcomm doesn't believe
 # in open source.

@@ -228,7 +228,7 @@ $(call inherit-product, build/target/product/small_base.mk)
 PRODUCT_LOCALES += mdpi
 
 PRODUCT_NAME := full_thunderc
-PRODUCT_BRAND := VirginMobile
+PRODUCT_BRAND := LGE
 PRODUCT_DEVICE := thunderc
 PRODUCT_MANUFACTURER := LGE
 
