@@ -201,17 +201,7 @@ PRODUCT_COPY_FILES += \
 # Apps
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
-    device/lge/thunderc/files/apps/GoogleBackupTransport.apk:system/app/GoogleBackupTransport.apk \
-    device/lge/thunderc/files/apps/GoogleCalendarSyncAdapter.apk:system/app/GoogleCalendarSyncAdapter.apk \
-    device/lge/thunderc/files/apps/GoogleContactsSyncAdapter.apk:system/app/GoogleContactsSyncAdapter.apk \
-    device/lge/thunderc/files/apps/GoogleServicesFramework.apk:system/app/GoogleServicesFramework.apk \
     device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
-    device/lge/thunderc/files/apps/MediaUploader.apk:system/app/MediaUploader.apk \
-    device/lge/thunderc/files/apps/NetworkLocation.apk:system/app/NetworkLocation.apk \
-    device/lge/thunderc/files/apps/OneTimeInitializer.apk:system/app/OneTimeInitializer.apk \
-    device/lge/thunderc/files/apps/SetupWizard.apk:system/app/SetupWizard.apk \
-    device/lge/thunderc/files/apps/Vending.apk:system/app/Vending.apk \
-    device/lge/thunderc/files/apps/libvoicesearch.so:system/lib/libvoicesearch.so \
 
 ifeq ($(SUB_MODEL),LW690)
 # MMS fix
