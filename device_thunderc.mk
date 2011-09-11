@@ -206,8 +206,8 @@ PRODUCT_COPY_FILES += \
 ifeq ($(SUB_MODEL),LW690)
 # MMS fix
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/overlay/MS690/packages/apps/Mms/sqlite3:system/xbin/sqlite3 \
-    device/lge/thunderc/overlay/MS690/packages/apps/Mms/Mms.apk:system/app/Mms.apk
+    device/lge/thunderc/overlay/LW690/packages/apps/Mms/sqlite3:system/xbin/sqlite3 \
+    device/lge/thunderc/overlay/LW690/packages/apps/Mms/Mms.apk:system/app/Mms.apk
 endif
 
 ifeq ($(SUB_MODEL),MS690)
