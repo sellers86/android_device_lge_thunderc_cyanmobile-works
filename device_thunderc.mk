@@ -103,6 +103,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/kernel/$(SUB_MODEL)/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/thunderc/files/kernel/$(SUB_MODEL)/tun.ko:system/lib/modules/tun.ko \
+    device/lge/thunderc/files/kernel/$(SUB_MODEL)/cifs.ko:system/lib/modules/cifs.ko \
     device/lge/thunderc/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
     device/lge/thunderc/files/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
@@ -200,7 +201,7 @@ PRODUCT_COPY_FILES += \
 
 # Apps
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/apps/AdobeFlashPlayerARMv6.apk:system/app/AdobeFlashPlayerARMv6.apk \
+#    device/lge/thunderc/files/apps/AdobeFlashPlayerARMv6.apk:system/app/AdobeFlashPlayerARMv6.apk \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
     device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
 
