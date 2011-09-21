@@ -201,7 +201,7 @@ PRODUCT_COPY_FILES += \
 
 # Apps
 PRODUCT_COPY_FILES += \
-#    device/lge/thunderc/files/apps/AdobeFlashPlayerARMv6.apk:system/app/AdobeFlashPlayerARMv6.apk \
+    device/lge/thunderc/files/apps/AdobeFlashPlayerARMv6.apk:system/app/AdobeFlashPlayerARMv6.apk \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
     device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
 
