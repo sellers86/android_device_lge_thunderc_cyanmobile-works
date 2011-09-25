@@ -201,23 +201,8 @@ PRODUCT_COPY_FILES += \
 
 # Apps
 PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/apps/FlashPlayerARMv6.apk:system/app/FlashPlayerARMv6.apk \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
     device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
-
-ifeq ($(SUB_MODEL),LW690)
-# MMS fix
-PRODUCT_COPY_FILES += \
-    device/lge/thunderc/overlay/LW690/packages/apps/Mms/sqlite3:system/xbin/sqlite3 \
-    device/lge/thunderc/overlay/LW690/packages/apps/Mms/Mms.apk:system/app/Mms.apk
-endif
-
-ifeq ($(SUB_MODEL),MS690)
-# MMS fix
-PRODUCT_COPY_FILES += \
-    device/lge/thunderc/overlay/MS690/packages/apps/Mms/sqlite3:system/xbin/sqlite3 \
-    device/lge/thunderc/overlay/MS690/packages/apps/Mms/Mms.apk:system/app/Mms.apk
-endif
 
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
