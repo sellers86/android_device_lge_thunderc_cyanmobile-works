@@ -23,3 +23,4 @@
 <!--   <apn name="metropcs" numeric="31166" mcc="311" mnc="66" apn="default" user="" server="*" password="" proxy="proxy.metropcs.net" port="3128" mmsproxy="null" mmsport="null" mmsprotocol="null" mmsc="http://mms.metropcs.net:3128/mmsc" type="null" />
    <apn name="metropcs" numeric="311660" mcc="311" mnc="660" apn="default" user="" server="*" password="" proxy="proxy.metropcs.net" port="3128" mmsproxy="null" mmsport="null" mmsprotocol="null" mmsc="http://mms.metropcs.net:3128/mmsc" type="null" />
    <apn name="sktelecom" numeric="00101" mcc="001" mnc="01" apn="default" user="" server="*" password="" proxy="proxy.metropcs.net" port="3128" mmsproxy="null" mmsport="null" mmsprotocol="null" mmsc="http://mms.metropcs.net:3128/mmsc" type="null" />-->
+

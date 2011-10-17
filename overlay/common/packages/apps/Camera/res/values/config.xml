@@ -29,3 +29,4 @@
 	<bool name="ffc_canZoom">true</bool>
 	<string name="ffc_supportedEffects"></string>
 </resources>
+

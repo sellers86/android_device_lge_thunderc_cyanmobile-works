@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -256,7 +256,7 @@ ifeq ($(SUB_MODEL),LW690)
     # We're on Cricket (In progress)
     CDMA_GOOGLE_BASE := android-cricket-us
     CDMA_CARRIER_ALPHA := Cricket
-    CDMA_CARRIER_NUMERIC := 310000
+    CDMA_CARRIER_NUMERIC := 310016
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
 endif
 
@@ -264,7 +264,7 @@ ifeq ($(SUB_MODEL),MS690)
     # We're on MetroPCS (TODO)
     CDMA_GOOGLE_BASE := android-metropcs-us
     CDMA_CARRIER_ALPHA := MetroPCS
-    CDMA_CARRIER_NUMERIC := 310027
+    CDMA_CARRIER_NUMERIC := 311660
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
 endif
 

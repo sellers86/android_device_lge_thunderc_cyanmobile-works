@@ -20,3 +20,4 @@
     <int name="aliasMaxChars">48</int>
     <bool name="allowAttachAudio">true</bool>
 </mms_config>
+
