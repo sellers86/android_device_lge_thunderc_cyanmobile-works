@@ -215,19 +215,28 @@ $(call inherit-product, build/target/product/small_base.mk)
 PRODUCT_LOCALES += mdpi
 
 PRODUCT_NAME := full_thunderc
-PRODUCT_BRAND := LGE
 PRODUCT_DEVICE := thunderc
 PRODUCT_MANUFACTURER := LGE
 
+ifeq ($(SUB_MODEL),VS700)
+    CDMA_BRAND := virgin_mobile
+    CDMA_GOOGLE_BASE := android-sprint-us
+    CDMA_CARRIER_ALPHA := Virgin_Mobile
+    CDMA_CARRIER_NUMERIC := 311490
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+endif
+
 ifeq ($(SUB_MODEL),VS660)
+    CDMA_BRAND := verizon
     CDMA_GOOGLE_BASE := android-verizon
-    CDMA_CARRIER_ALPHA := Verizon_Wireless
+    CDMA_CARRIER_ALPHA := Verizon
     CDMA_CARRIER_NUMERIC := 310004
     BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
 endif
 
 ifeq ($(SUB_MODEL),LS670)
     # We're on Sprint
+    CDMA_BRAND := sprint
     CDMA_GOOGLE_BASE := android-sprint-us
     CDMA_CARRIER_ALPHA := Sprint
     CDMA_CARRIER_NUMERIC := 310120
@@ -239,6 +248,7 @@ ifeq ($(SUB_MODEL),VM670)
     # http://en.wikipedia.org/wiki/Mobile_Network_Code
     # Set this properly so that Android Marketplace gets
     # this right.
+    CDMA_BRAND := virgin_mobile
     CDMA_GOOGLE_BASE := android-sprint-us
     CDMA_CARRIER_ALPHA := Virgin_Mobile
     CDMA_CARRIER_NUMERIC := 311490
@@ -247,6 +257,7 @@ endif
 
 ifeq ($(SUB_MODEL),US670)
     # We're on USC (TODO)
+    CDMA_BRAND := sprint
     CDMA_GOOGLE_BASE := android-sprint-us
     CDMA_CARRIER_ALPHA := US_Cellular
     CDMA_CARRIER_NUMERIC := 310066
@@ -254,6 +265,7 @@ endif
 
 ifeq ($(SUB_MODEL),LW690)
     # We're on Cricket (In progress)
+    CDMA_BRAND :=cricket
     CDMA_GOOGLE_BASE := android-cricket-us
     CDMA_CARRIER_ALPHA := Cricket
     CDMA_CARRIER_NUMERIC := 310016
@@ -262,6 +274,7 @@ endif
 
 ifeq ($(SUB_MODEL),MS690)
     # We're on MetroPCS (TODO)
+    CDMA_BRAND :=metropcs
     CDMA_GOOGLE_BASE := android-metropcs-us
     CDMA_CARRIER_ALPHA := MetroPCS
     CDMA_CARRIER_NUMERIC := 311660
@@ -273,6 +286,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/$(BLUETOOTH_FIRMWARE):system/bin/BCM4325.hcd
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.brand=$() \
     ro.com.google.clientidbase=$(CDMA_GOOGLE_BASE) \
     ro.cdma.home.operator.alpha=$(CDMA_CARRIER_ALPHA) \
     ro.cdma.home.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
