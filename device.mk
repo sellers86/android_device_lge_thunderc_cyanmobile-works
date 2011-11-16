@@ -12,8 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Use the non-open-source part, if present
--include vendor/lge/thunderc/BoardConfigVendor.mk
+# This file includes all definitions that apply only to maguro devices
+#
+# Anything that is generic to all tuna products should go in the tuna directory
+#
+# Everything in this directory will become public
 
-# Use the part that is common between all tunas
-# include device/lge/thunderc/BoardConfig.mk
+DEVICE_PACKAGE_OVERLAYS := device/lge/thunderc/overlay
+
+# These are the hardware-specific features
+PRODUCT_COPY_FILES := \
+	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+$(call inherit-product, device/lge/thunderc/device.mk)
+$(call inherit-product-if-exists, vendor/lge/thunderc/device-vendor.mk)
