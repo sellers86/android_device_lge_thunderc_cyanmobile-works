@@ -18,9 +18,9 @@
 
 DEVICE=thunderc
 MANUFACTURER=lge
+MODEL=VM670
 
-
-(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
+(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g | sed s/__MODEL__/$MODEL/g> ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/$MODEL/device-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,13 +40,13 @@ MANUFACTURER=lge
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
 
-# All the blobs necessary for maguro
+# All the blobs necessary for thunderc
 PRODUCT_COPY_FILES += \\
 
 
 EOF
 
-(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/Android.mk
+(cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g | sed s/__MODEL__/$MODEL/g> ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/$MODEL/Android.mk
 # Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

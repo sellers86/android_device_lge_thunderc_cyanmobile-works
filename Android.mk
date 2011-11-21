@@ -22,14 +22,14 @@
 
 LOCAL_PATH := $(call my-dir)
 
-include $(CLEAR_VARS)
+# include $(CLEAR_VARS)
 
 # LOCAL_MODULE := thunderc_hdcp_keys
 # LOCAL_MODULE_TAGS := optional
 # LOCAL_MODULE_CLASS := FAKE
 # LOCAL_MODULE_SUFFIX := -timestamp
 
-include $(BUILD_SYSTEM)/base_rules.mk
+# include $(BUILD_SYSTEM)/base_rules.mk
 
 # $(LOCAL_BUILT_MODULE): HDCP_KEYS_FILE := /factory/hdcp.keys
 # $(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT_VENDOR)/firmware/hdcp.keys

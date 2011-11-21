@@ -12,39 +12,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Use the non-open-source part, if present
--include vendor/lge/thunderc/BoardConfigVendor.mk
-
-# Use the part that is common between all tunas
-# include device/lge/thunderc/BoardConfig.mk
-
+# These two variables are set first, so they can be overridden
+# by BoardConfigVendor.mk
+BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
 
-TARGET_BOARD_PLATFORM := msm7k
-TARGET_ARCH_VARIANT := armv6-vfp
+# Use the non-open-source part, if present
+-include vendor/lge/thunderc/BoardConfigVendor.mk
+
+# TARGET_BOARD_PLATFORM := msm7k
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_ARCH_VARIANT := armv6-vfp
+# TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-BOARD_NO_RGBX_8888 := true
-BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
-TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
+# TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+# BOARD_NO_RGBX_8888 := true
+# BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
+# TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
-TARGET_PROVIDES_INIT_TARGET_RC := true
+# TARGET_PROVIDES_INIT_TARGET_RC := true
 
-TARGET_USES_OLD_LIBSENSORS_HAL := true
+# TARGET_USES_OLD_LIBSENSORS_HAL := true
 
-TARGET_OTA_ASSERT_DEVICE := thunderc
+# TARGET_OTA_ASSERT_DEVICE := thunderc
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_USES_QCOM_LIBS := true
-BOARD_USES_QCOM_LIBRPC := true
+# BOARD_USES_QCOM_HARDWARE := true
+# BOARD_USES_QCOM_LIBS := true
+# BOARD_USES_QCOM_LIBRPC := true
+
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_FORCE_STATIC_A2DP := true
@@ -57,7 +58,7 @@ BOARD_GPS_NEEDS_XTRA := true
 BOARD_GPS_LIBRARIES := libloc
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/        UsbController.cpp
 
 # VER_0_6_X does not search networks
 WPA_SUPPLICANT_VERSION := VER_0_5_X
@@ -96,6 +97,6 @@ BUILD_WITH_FULL_STAGEFRIGHT := true
 TARGET_PROVIDES_LIBAUDIO := true
 # TARGET_PROVIDES_LIBRIL = vendor/lge/thunderc/proprietary/system/lib/libril-qc-1.so
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-TARGET_SF_NEEDS_REAL_DIMENSIONS := true
+# BOARD_HAVE_FM_RADIO := true
+# BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+# TARGET_SF_NEEDS_REAL_DIMENSIONS := true

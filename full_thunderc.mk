@@ -21,6 +21,14 @@
 # lines, full and maguro, hence its name.
 #
 
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        MagicSmokeWallpapers \
+        VisualizationWallpapers \
+        librs_jni
+
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
@@ -37,4 +45,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 PRODUCT_NAME := full_thunderc
 PRODUCT_DEVICE := thunderc
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := Full AOSP on Optimus V
+PRODUCT_MODEL := Full AOSP on VM670
