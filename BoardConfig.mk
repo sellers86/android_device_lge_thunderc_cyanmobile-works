@@ -74,6 +74,8 @@ WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
 
+TARGET_PREBUILT_KERNEL := device/lge/thunderc/kernel
+
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc uart_console=disable recovery=off lge.rev=10
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00000800
@@ -89,9 +91,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0b2e0000
 #BOARD_HAS_NO_SELECT_BUTTON := true
 
 WITH_DEXPREOPT := false
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-JS_ENGINE := v8
+# WITH_JIT := true
+# ENABLE_JSC_JIT := true
+# JS_ENGINE := v8
 
 BUILD_WITH_FULL_STAGEFRIGHT := true
 TARGET_PROVIDES_LIBAUDIO := true

@@ -21,7 +21,7 @@
 DEVICE_PACKAGE_OVERLAYS := device/lge/thunderc/overlay/common device/lge/thunderc/overlay/VM670
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lge/thunderc/files/kernel/VM670
+LOCAL_KERNEL := device/lge/thunderc/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -139,7 +139,6 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     vendor/lge/thunderc/proprietary/VM670/system/lib/liba2dp.so:system/lib/liba2dp.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/lge/thunderc/proprietary/VM670/system/lib/libbinder.so:system/lib/libbinder.so \
     device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
 # Device permissions
