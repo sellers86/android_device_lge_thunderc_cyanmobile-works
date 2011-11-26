@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/full_thunderc.mk
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/thunderc.mk

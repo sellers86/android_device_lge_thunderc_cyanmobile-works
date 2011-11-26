@@ -58,7 +58,7 @@ BOARD_GPS_NEEDS_XTRA := true
 BOARD_GPS_LIBRARIES := libloc
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/        UsbController.cpp
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
 
 # VER_0_6_X does not search networks
 WPA_SUPPLICANT_VERSION := VER_0_5_X
@@ -74,7 +74,7 @@ WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
 BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
 
-TARGET_PREBUILT_KERNEL := device/lge/thunderc/kernel
+TARGET_PREBUILT_KERNEL := device/lge/thunderc/files/kernel/VM670/kernel
 
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc uart_console=disable recovery=off lge.rev=10
 BOARD_KERNEL_BASE := 0x12200000

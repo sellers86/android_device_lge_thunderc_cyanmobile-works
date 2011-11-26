@@ -30,7 +30,7 @@ PRODUCT_PACKAGES += \
         librs_jni
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := device/thunderc/files/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Camera
 PRODUCT_PACKAGES := \
@@ -42,7 +42,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_thunderc
+PRODUCT_NAME := thunderc
 PRODUCT_DEVICE := thunderc
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := Full AOSP on VM670
+PRODUCT_BRAND := lge
+PRODUCT_MODEL := VM670
