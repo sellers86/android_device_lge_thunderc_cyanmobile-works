@@ -18,8 +18,6 @@
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/thunderc/overlay/common device/lge/thunderc/overlay/VM670
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/lge/thunderc/kernel
 else
@@ -42,6 +40,8 @@ PRODUCT_PACKAGES += \
     e2fsck \
 
 DISABLE_DEXPREOPT := false
+
+DEVICE_PACKAGE_OVERLAYS := device/lge/thunderc/overlay/common device/lge/thunderc/overlay/VM670
 
 # Backlight
 PRODUCT_COPY_FILES += \
