@@ -26,7 +26,7 @@ endif
 
 # These are the hardware-specific features
 
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_PACKAGES += \

@@ -20,7 +20,7 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-# LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)
 
 # include $(CLEAR_VARS)
 
@@ -43,5 +43,5 @@
 # 	$(hide) ln -sf $(HDCP_KEYS_FILE) $(SYMLINK)
 # 	$(hide) touch $@
 
-# include $(call all-makefiles-under,$(LOCAL_PATH))
-include $(call all-subdir-makefiles)
+include $(call all-makefiles-under,$(LOCAL_PATH))
+# include $(call all-subdir-makefiles)
