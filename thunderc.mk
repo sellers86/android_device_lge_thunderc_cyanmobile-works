@@ -21,6 +21,15 @@
 # lines, full and maguro, hence its name.
 #
 
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/lge/thunderc/files/kernel/VM670/kernel
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES := \
+    $(LOCAL_KERNEL):kernel
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
         LiveWallpapers \
