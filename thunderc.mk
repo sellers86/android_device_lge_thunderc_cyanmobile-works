@@ -30,11 +30,12 @@ PRODUCT_PACKAGES += \
         librs_jni
 
 # Get the long list of APNs
-PRODUCT_COPY_FILES := device/thunderc/files/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := \
+	device/lge/thunderc/files/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Camera
 PRODUCT_PACKAGES := \
-    Camera
+	Camera
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)

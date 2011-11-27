@@ -111,9 +111,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
-vendor/lge/thunderc/proprietary/VM670/system/lib/liboemcamera.so:system/lib/liboemcamera.so \
-vendor/lge/thunderc/proprietary/VM670/system/lib/libmmipl.so:system/lib/libmmipl.so \
-vendor/lge/thunderc/proprietary/VM670/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so
+	vendor/lge/thunderc/proprietary/VM670/system/lib/liboemcamera.so:system/lib/liboemcamera.so \
+	vendor/lge/thunderc/proprietary/VM670/system/lib/libmmipl.so:system/lib/libmmipl.so \
+	vendor/lge/thunderc/proprietary/VM670/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so
 
 # WiFi
 PRODUCT_COPY_FILES += \

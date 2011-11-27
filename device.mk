@@ -37,28 +37,30 @@ PRODUCT_PACKAGES += \
     flash_image \
     dump_image \
     erase_image \
-    e2fsck \
+    e2fsck
 
 DISABLE_DEXPREOPT := false
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/thunderc/overlay/common device/lge/thunderc/overlay/VM670
+DEVICE_PACKAGE_OVERLAYS := \
+    device/lge/thunderc/overlay/common \
+    device/lge/thunderc/overlay/VM670
 
 # Backlight
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/VM670/system/lib/hw/lights.thunderc.so:system/lib/hw/lights.thunderc.so \
+PRODUCT_COPY_FILES := \
+    vendor/lge/thunderc/proprietary/VM670/system/lib/hw/lights.thunderc.so:system/lib/hw/lights.thunderc.so
 
 # Publish that we support the live wallpaper feature.
-PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml \
+PRODUCT_COPY_FILES := \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
 # Keylayouts
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     device/lge/thunderc/files/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderc/proprietary/VM670/system/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+    vendor/lge/thunderc/proprietary/VM670/system/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin
 
 # Board-specific init (does not support charging in "power off" state yet)
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/init.thunderc.rc:root/init.thunderc.rc \
     device/lge/thunderc/files/ueventd.thunderc.rc:root/ueventd.thunder.rc \
     device/lge/thunderc/files/initlogo.rle:root/initlogo.rle \
@@ -82,18 +84,18 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/etc/init.local.rc:/system/etc/init.local.rc
 
 # 2D (using proprietary because of poor performance of open source libs)
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
-    vendor/lge/thunderc/proprietary/VM670/system/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
+    vendor/lge/thunderc/proprietary/VM670/system/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so
 
 # Sensors
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/hw/sensors.thunderc.so:system/lib/hw/sensors.thunderc.so \
-    vendor/lge/thunderc/proprietary/VM670/system/bin/ami304d:system/bin/ami304d \
+    vendor/lge/thunderc/proprietary/VM670/system/bin/ami304d:system/bin/ami304d
 
 # GPS
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/etc/loc_parameter.ini:system/etc/loc_parameter.ini \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libloc_api.so:system/lib/libloc_api.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libgps.so:system/lib/libgps.so \
@@ -103,23 +105,23 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libloc-rpc.so:system/lib/libloc-rpc.so
 
 # 3D
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libgsl.so:system/lib/libgsl.so \
     vendor/lge/thunderc/proprietary/VM670/system/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    vendor/lge/thunderc/proprietary/VM670/system/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    vendor/lge/thunderc/proprietary/VM670/system/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
 # Camera
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/liboemcamera.so:system/lib/liboemcamera.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderc/proprietary/VM670/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/lge/thunderc/proprietary/VM670/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so
 
 # WiFi
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/kernel/VM670/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/thunderc/files/kernel/VM670/tun.ko:system/lib/modules/tun.ko \
     device/lge/thunderc/files/kernel/VM670/cifs.ko:system/lib/modules/cifs.ko \
@@ -131,26 +133,34 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/VM670/system/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
 
 # SD Card
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/VM670/system/etc/vold.fstab:system/etc/vold.fstab \
+PRODUCT_COPY_FILES := \
+    vendor/lge/thunderc/proprietary/VM670/system/etc/vold.fstab:system/etc/vold.fstab
 
 # Audio
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     vendor/lge/thunderc/proprietary/VM670/system/lib/liba2dp.so:system/lib/liba2dp.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
 
 # Device permissions
-PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+PRODUCT_COPY_FILES := \
+    frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+    frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml
 
 # LGE services
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/VM670/system/bin/qmuxd:system/bin/qmuxd \
+PRODUCT_COPY_FILES := \
+    vendor/lge/thunderc/proprietary/VM670/system/bin/qmuxd:system/bin/qmuxd
 
 # RIL
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/liboncrpc.so:system/lib/liboncrpc.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libdsm.so:system/lib/libdsm.so \
@@ -174,10 +184,10 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libbcmwl.so:system/lib/libbcmwl.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libdss.so:system/lib/libdss.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libril.so:system/lib/libril.so \
-    vendor/lge/thunderc/proprietary/VM670/system/bin/rild:system/bin/rild \
+    vendor/lge/thunderc/proprietary/VM670/system/bin/rild:system/bin/rild
 
 # OMX
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libOmxAacDec.so:system/lib/libOmxAacDec.so \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
@@ -198,26 +208,27 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/VM670/system/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
 # CND
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/bin/cnd:system/bin/cnd
 
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/thunderc/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik \
+    device/lge/thunderc/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik
 
 # Apps
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
-    device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
+    device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk
 
 # Let's use our own GPS config file
-PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
+PRODUCT_COPY_FILES := \
+    device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
 
 # mdpi goes last so that the janky default locale/region code can pick a sane default
 PRODUCT_LOCALES += mdpi
 
 # Bluetooth
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES := \
     vendor/lge/thunderc/proprietary/VM670/system/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/bin/BCM4325.hcd
 
 CDMA_BRAND := virgin_mobile
