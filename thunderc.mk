@@ -22,13 +22,13 @@
 #
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lge/thunderc/files/kernel/VM670/kernel
+LOCAL_KERNEL := device/lge/thunderc/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES := \
-    $(LOCAL_KERNEL):kernel
+	$(LOCAL_KERNEL):kernel
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
