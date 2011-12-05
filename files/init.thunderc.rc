@@ -141,6 +141,9 @@ on boot
 	copy /proc/last_kmsg /data/dontpanic/last_kmsg
 	chown root log /data/dontpanic/last_kmsg
 	chmod 0640 /data/dontpanic/last_kmsg
+    
+# Enable ADB mode
+	write /dev/usb_device_mode charge_adb
 
 service bdaddr /system/bin/bdaddr_read
 	class main
