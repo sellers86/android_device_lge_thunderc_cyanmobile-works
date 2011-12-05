@@ -26,10 +26,12 @@
 #	Camera
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, device/lge/thunderc/device.mk)
+# Also get non-open-source files if available
+$(call inherit-product-if-exists, vendor/lge/thunderc/device-vendor.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := thunderc
