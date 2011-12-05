@@ -143,6 +143,7 @@ on boot
 	chmod 0640 /data/dontpanic/last_kmsg
 
 service bdaddr /system/bin/bdaddr_read
+	class main
 	user root
 	disabled
 	oneshot
@@ -169,6 +170,7 @@ on property:init.svc.bootanim=running
 	start bdaddr
 
 service hciattach /system/bin/brcm_patchram_plus -d --baudrate 3000000 --patchram /system/bin/BCM4325.hcd --enable_hci /dev/ttyHS0
+	class main
 	user bluetooth
 	group bluetooth net_bt_admin
 	disabled
@@ -177,10 +179,12 @@ service hciattach /system/bin/brcm_patchram_plus -d --baudrate 3000000 --patchra
 service qmuxd /system/bin/qmuxd 
 
 service cnd /system/bin/cnd
+	class main
 	socket cnd stream 660 root radio
 	socket cne stream 660 root radio
 
 service ami304d /system/bin/ami304d
+	class main
 	user compass
 	group system
 
@@ -195,6 +199,7 @@ service ami304d /system/bin/ami304d
 
 # LGE_CHANGE_S, [jisung.yang@lge.com], 2010-04-24,<register WLAN services>
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf #-dd
+	class main
 	socket wpa_wlan0 dgram 660 wifi wifi
 	group system wifi inet
 	disabled
@@ -203,10 +208,12 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wi
 
 #service dhcpcd /system/bin/dhcpcd -B wlan0
 service dhcpcd_wlan0 /system/bin/dhcpcd -BKLA wlan0 # disable ARP operation
+	class main
 	disabled
 	oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n # ensures ip renewal on some routers/networks
+	class main
 	disabled
 	oneshot
 
@@ -226,6 +233,7 @@ on property:dev.bootcomplete=1
 
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
+	class main
 	user root
 	disabled
 
@@ -238,12 +246,14 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmc
 # LGE_CHANGE [dojip.kim@lge.com] 2010-09-02, blocked in production build
 # bugreport is triggered by the KEY_VOLUME_DOWN and KEY_MENU keycodes
 service bugreport /system/bin/logwrapper /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+	class main
 	disabled
 	oneshot
 	keycodes 114 139
 
 # LGE_CHANGE_S [jeongku.choi@lge.com] 2010-07-09, [CIQ] adapting patch files
 service iqmsd /system/bin/iqmsd
+	class main
 	disabled
 
 on property:service.iq.active=1
