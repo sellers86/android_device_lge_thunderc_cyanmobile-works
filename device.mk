@@ -19,7 +19,7 @@
 # Everything in this directory will become public
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lge/thunderc/kernel
+LOCAL_KERNEL := device/lge/thunderc/files/zImage
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -119,9 +119,9 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 # PRODUCT_COPY_FILES := \
-#	device/lge/thunderc/files/kernel/VM670/wireless.ko:system/lib/modules/wireless.ko \
-#	device/lge/thunderc/files/kernel/VM670/tun.ko:system/lib/modules/tun.ko \
-#	device/lge/thunderc/files/kernel/VM670/cifs.ko:system/lib/modules/cifs.ko \
+#	device/lge/thunderc/files/modules/VM670/wireless.ko:system/lib/modules/wireless.ko \
+#	device/lge/thunderc/files/modules/VM670/tun.ko:system/lib/modules/tun.ko \
+#	device/lge/thunderc/files/modules/VM670/cifs.ko:system/lib/modules/cifs.ko \
 #	device/lge/thunderc/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 #	vendor/lge/thunderc/proprietary/VM670/system/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
 #	device/lge/thunderc/files/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \

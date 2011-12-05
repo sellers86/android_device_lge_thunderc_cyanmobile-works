@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-MOD_SRC := device/lge/thunderc/files/kernel/VM670
+MOD_SRC := device/lge/thunderc/files/modules/VM670
 
 PRODUCT_COPY_FILES += $(shell \
     find $(MOD_SRC) -name '*.ko' \
