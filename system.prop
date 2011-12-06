@@ -97,14 +97,6 @@ qemu.sf.lcd_density=160
 ro.sf.hwrotation=0
 ro.sf.lcd_density=160
 
-# V6 SuperCharger settings
-ro.ril.hsxpa=3
-ro.ril.gprsclass=12
-ro.ril.hep=1
-ro.ril.enable.dtm=1
-ro.ril.hsdpa.category=28
-ro.ril.enable.a53=1
-ro.ril.enable.3g.prefix=1
-ro.ril.htcmaskw1.bitmask=4294967295
-ro.ril.htcmaskw1=14449
-ro.ril.hsupa.category=9
+# enable adbd during first boot
+persist.service.adb.enable=1
+
