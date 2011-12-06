@@ -18,15 +18,17 @@ BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
 
-# Use the non-open-source part, if present
--include vendor/lge/thunderc/BoardConfigVendor.mk
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
-# TARGET_BOARD_PLATFORM := msm7k
+# Board properties
+TARGET_BOARD_PLATFORM := msm7k
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
-# TARGET_ARCH_VARIANT := armv6-vfp
-# TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_BOOTLOADER_BOARD_NAME := thunderc
+TARGET_ARCH_VARIANT := armv6-vfp
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+
 TARGET_OTA_ASSERT_DEVICE := thunderc
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_BOOTLOADER_BOARD_NAME=thunderc
 TARGET_BOARD_INFO_FILE := device/lge/thunderc/board-info.txt
@@ -41,9 +43,6 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 # TARGET_PROVIDES_INIT_TARGET_RC := true
 
 # TARGET_USES_OLD_LIBSENSORS_HAL := true
-
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
 
 # BOARD_USES_QCOM_HARDWARE := true
 # BOARD_USES_QCOM_LIBS := true
@@ -63,19 +62,18 @@ TARGET_NO_RADIOIMAGE := true
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
 
-# VER_0_6_X does not search networks
-# WPA_SUPPLICANT_VERSION := VER_0_5_X
-# BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-# BOARD_WLAN_DEVICE := bcm4325
-# WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
-# WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-# WIFI_DRIVER_MODULE_NAME := wireless
-## Tethering is not working now
-# WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-# WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-# WIFI_DRIVER_HAS_LGE_SOFTAP := true
+# Wifi related defines
+BOARD_WLAN_DEVICE := bcm4325
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
+WIFI_DRIVER_MODULE_NAME := wireless
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
-# BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
 
 TARGET_PREBUILT_KERNEL := device/lge/thunderc/files/zImage
 
@@ -105,3 +103,5 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0b2e0000
 # BOARD_HAVE_FM_RADIO := true
 # BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 # TARGET_SF_NEEDS_REAL_DIMENSIONS := true
+
+BOARD_USES_OVERLAY := true
