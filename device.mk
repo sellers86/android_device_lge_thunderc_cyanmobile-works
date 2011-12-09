@@ -24,26 +24,30 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_COPY_FILES := \
+PRODUCT_COPY_FILES += \
 	$(LOCAL_KERNEL):kernel
 
-# PRODUCT_PACKAGES += \
-#	gps.thunderc \
-#	libmm-omxcore \
-#	libOmxCore \
-#	bdaddr_read \
-#	flash_image \
-#	dump_image \
-#	erase_image \
-#	e2fsck
+PRODUCT_PACKAGES += \
+	gps.thunderc \
+	libmm-omxcore \
+	libOmxCore \
+	bdaddr_read \
+	flash_image \
+	dump_image \
+	erase_image \
+	e2fsck
 
-# DISABLE_DEXPREOPT := false
+DISABLE_DEXPREOPT := false
 
 DEVICE_PREBUILT := device/lge/thunderc
 
 DEVICE_PACKAGE_OVERLAYS += \
         $(DEVICE_PREBUILT)/overlay/common \
         $(DEVICE_PREBUILT)/overlay/VM670
+
+# Touchscreen config
+PRODUCT_COPY_FILES += \
+	device/lge/thunderc/files/touch_mcs6000.idc:/system/lib/idc/touch_mcs6000.idc
 
 # Backlight
 PRODUCT_COPY_FILES += \
@@ -209,17 +213,17 @@ PRODUCT_COPY_FILES := \
 PRODUCT_COPY_FILES += \
 	vendor/lge/thunderc/proprietary/VM670/system/bin/cnd:system/bin/cnd
 
-# PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
         $(DEVICE_PREBUILT)/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
         $(DEVICE_PREBUILT)/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik
 
 # Apps
-# PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
         $(DEVICE_PREBUILT)/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
         $(DEVICE_PREBUILT)/files/apps/LauncherPro.apk:system/app/LauncherPro.apk
 
 # Let's use our own GPS config file
-# PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
         $(DEVICE_PREBUILT)/files/etc/gps.conf:system/etc/gps.conf
 
 # mdpi goes last so that the janky default locale/region code can pick a sane default
