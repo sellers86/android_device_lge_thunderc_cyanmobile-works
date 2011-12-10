@@ -14,13 +14,10 @@
 
 # These two variables are set first, so they can be overridden
 # by BoardConfigVendor.mk
-BOARD_USES_GENERIC_AUDIO := true
+
+#Camera
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
-
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
 # Board properties
 TARGET_BOARD_PLATFORM := msm7k
@@ -29,38 +26,49 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv5te-vfp
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
+# Target properties
 TARGET_OTA_ASSERT_DEVICE := thunderc
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_BOOTLOADER_BOARD_NAME=thunderc
 TARGET_BOARD_INFO_FILE := device/lge/thunderc/board-info.txt
 
-BOARD_USE_LEGACY_TOUCHSCREEN := true
-BOARD_VENDOR_USE_AKMD := akm8973
+# Target information
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
+# Graphics
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 # BOARD_NO_RGBX_8888 := true
+BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
+BOARD_HAS_LIMITED_EGL := true
 COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DNO_RGBX_8888
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
+# Sensors
 TARGET_USES_OLD_LIBSENSORS_HAL := true
+BOARD_VENDOR_USE_AKMD := akm8973
 
+# Touchscreen
+BOARD_USE_LEGACY_TOUCHSCREEN := true
+
+# QCOM
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-# BOARD_FORCE_STATIC_A2DP := true
 
-# Using GPSSHIM so that we can use the LG/Qualcomm binary blobs because
-# the open source stuff seems to be buggy, and Qualcomm doesn't believe
-# in open source.
+# GPS
 BOARD_USES_GPSSHIM := true
 BOARD_GPS_NEEDS_XTRA := true
 BOARD_GPS_LIBRARIES := libloc
 
+# USB mass storage
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
 
@@ -75,10 +83,8 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
-BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
-
+# Kernel
 TARGET_PREBUILT_KERNEL := device/lge/thunderc/files/zImage
-
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc uart_console=disable recovery=off lge.rev=10
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00000800
@@ -94,14 +100,22 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0b2e0000
 #BOARD_HAS_NO_SELECT_BUTTON := true
 
 WITH_DEXPREOPT := false
+
+# Browser
 # WITH_JIT := true
 # ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 
+#Audio
+BOARD_USES_GENERIC_AUDIO := true
 # BUILD_WITH_FULL_STAGEFRIGHT := true
 # TARGET_PROVIDES_LIBAUDIO := true
-# TARGET_PROVIDES_LIBRIL = vendor/lge/thunderc/proprietary/system/lib/libril-qc-1.so
+# BOARD_FORCE_STATIC_A2DP := true
 
+# RIL
+TARGET_PROVIDES_LIBRIL := true
+
+# FM radio
 # BOARD_HAVE_FM_RADIO := true
 # BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 # TARGET_SF_NEEDS_REAL_DIMENSIONS := true
