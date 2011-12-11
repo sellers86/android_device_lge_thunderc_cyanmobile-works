@@ -218,9 +218,9 @@ PRODUCT_COPY_FILES += \
         $(DEVICE_PREBUILT)/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik
 
 # Apps
-PRODUCT_COPY_FILES += \
-        $(DEVICE_PREBUILT)/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
-        $(DEVICE_PREBUILT)/files/apps/LauncherPro.apk:system/app/LauncherPro.apk
+#PRODUCT_COPY_FILES += \
+#        $(DEVICE_PREBUILT)/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
+#        $(DEVICE_PREBUILT)/files/apps/LauncherPro.apk:system/app/LauncherPro.apk
 
 # Let's use our own GPS config file
 PRODUCT_COPY_FILES += \

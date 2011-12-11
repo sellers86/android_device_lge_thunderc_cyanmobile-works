@@ -21,3 +21,5 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo thunderc-eng
+add_lunch_combo full_thunderc-userdebug
+add_lunch_combo cm_thunderc-userdebug
