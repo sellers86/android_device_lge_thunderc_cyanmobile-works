@@ -22,7 +22,12 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# include $(CLEAR_VARS)
+include $(CLEAR_VARS)
+
+file := $(INSTALLED_KERNEL_TARGET)
+ALL_PREBUILT += $(file)
+$(file): $(TARGET_PREBUILT_KERNEL) | $(ACP)
+	$(transform-prebuilt-to-target)
 
 # LOCAL_MODULE := thunderc_hdcp_keys
 # LOCAL_MODULE_TAGS := optional

@@ -8,11 +8,14 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
-PRODUCT_NAME := thunderc
+PRODUCT_NAME := cm_thunderc
 PRODUCT_BRAND := LGE
 PRODUCT_DEVICE := OPTIMUS
 PRODUCT_MODEL := VM670
 PRODUCT_MANUFACTURER := LGE
+
+# Release name and versioning
+PRODUCT_RELEASE_NAME := thunderc
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	BUILD_ID=GWK74 \
