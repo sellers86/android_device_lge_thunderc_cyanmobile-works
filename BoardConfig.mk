@@ -113,7 +113,8 @@ TARGET_PROVIDES_LIBAUDIO := true
 BOARD_FORCE_STATIC_A2DP := true
 
 # RIL
-TARGET_PROVIDES_LIBRIL := true
+# TARGET_PROVIDES_LIBRIL := true
+TARGET_PROVIDES_LIBRIL := vendor/lge/thunderc/proprietary/system/lib/libril-qc-1.so
 
 # FM radio
 # BOARD_HAVE_FM_RADIO := true
