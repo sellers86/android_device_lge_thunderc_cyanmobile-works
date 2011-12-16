@@ -10,7 +10,6 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 
 PRODUCT_NAME := cm_thunderc
 PRODUCT_BRAND := LGE
-PRODUCT_DEVICE := OPTIMUS
 PRODUCT_MODEL := VM670
 PRODUCT_MANUFACTURER := LGE
 
