@@ -19,7 +19,7 @@
 DEVICE=thunderc
 MODEL=VM670
 
-chmod 755 ../../../vendor/lge/$DEVICE/proprietary/$MODEL/bin/*
+chmod 755 ../../../vendor/lge/$DEVICE/proprietary/$MODEL/system/bin/*
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/lge/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The AndroidOpen Source Project

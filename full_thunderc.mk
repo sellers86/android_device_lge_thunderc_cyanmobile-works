@@ -31,7 +31,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, device/lge/thunderc/device.mk)
 $(call inherit-product, device/lge/thunderc/modules.mk)
-$(call inherit-product, device/lge/thunderc/setup-makefiles.sh
+$(call inherit-product, device/lge/thunderc/extract-files.sh
 # Also get non-open-source files if available
 $(call inherit-product-if-exists, vendor/lge/thunderc/device-vendor.mk)
 

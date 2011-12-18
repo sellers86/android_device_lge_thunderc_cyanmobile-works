@@ -100,3 +100,5 @@ ro.sf.lcd_density=160
 # enable adbd during first boot
 persist.service.adb.enable=1
 
+debug.sf.hw = 0
+
