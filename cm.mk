@@ -1,4 +1,4 @@
-$(call inherit-product, device/lge/thunderc/full_thunderc.mk)
+$(call inherit-product, device/lge/thunderc/device_thunderc.mk)
 
 #$(call inherit-product, device/lge/thunderc/device.mk)
 
@@ -24,4 +24,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRIVATE_BUILD_DESC="lge_gelato-user 2.3.4 GRJ22 ZV4.19cd75186d release-keys" \
 	BUILD_NUMBER=${DATE}
 	TARGET_BUILD_TYPE=user
-
