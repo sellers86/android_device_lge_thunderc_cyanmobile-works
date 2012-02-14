@@ -37,7 +37,7 @@ PRODUCT_COPY_FILES += \
 
 # Touchscreen config
 PRODUCT_COPY_FILES += \
-	$(DEVICE_PREBUILT)/files/touch_mcs6000.idc:/system/lib/idc/touch_mcs6000.idc
+    device/lge/thunderc/files/touch_mcs6000.idc:/system/lib/idc/touch_mcs6000.idc
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -145,6 +145,9 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libaudioeq.so:system/lib/libaudioeq.so \
     device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libaudioalsa.so:/system/lib/libaudioalsa.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libaudioalsa.so:/obj/lib/libaudioalsa.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/liba2dp.so:/system/lib/liba2dp.so 
 
 # Device permissions
 PRODUCT_COPY_FILES += \
@@ -236,10 +239,11 @@ PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
 # mdpi goes last so that the janky default locale/region code can pick a sane default
 PRODUCT_LOCALES += mdpi
 
-PRODUCT_NAME := full_thunderc
+PRODUCT_NAME := lge_thunderc
 PRODUCT_DEVICE := thunderc
-PRODUCT_MANUFACTURER := LGE
 PRODUCT_BRAND := LGE
+PRODUCT_MODEL := $(SUB_MODEL)
+PRODUCT_MANUFACTURER := LGE
 
 ifeq ($(SUB_MODEL),VS700)
     CDMA_BRAND := virgin_mobile
@@ -316,4 +320,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.sim.operator.alpha=$(CDMA_CARRIER_ALPHA) \
     gsm.sim.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
     gsm.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-    gsm.operator.numeric=$(CDMA_CARRIER_NUMERIC)
+    gsm.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
+    ro.telephony.ril.v3=datacall,signalstrength

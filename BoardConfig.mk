@@ -1,58 +1,78 @@
+SUB_MODEL := VM670
+
+# Camera
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
 
+# Board properties
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_ARCH_VARIANT := armv6-vfp
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+
+# Target properties
+TARGET_OTA_ASSERT_DEVICE := thunderc
+
+# Target information
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
+# Graphics
+BOARD_USES_ADRENO_200 := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_NO_RGBX_8888 := true
+BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
+BOARD_HAS_LIMITED_EGL := true
+COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DNO_RGBX_8888
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
+# Sensors
 TARGET_USES_OLD_LIBSENSORS_HAL := true
+BOARD_VENDOR_USE_AKMD := akm8973
 
-TARGET_OTA_ASSERT_DEVICE := thunderc
+# Touchscreen
+BOARD_USE_LEGACY_TOUCHSCREEN := true
 
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-
+# QCOM
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_USES_QCOM_LIBRPC := true
+
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_FORCE_STATIC_A2DP := true
 
-# Using GPSSHIM so that we can use the LG/Qualcomm binary blobs because
-# the open source stuff seems to be buggy, and Qualcomm doesn't believe
-# in open source.
+# GPS
 BOARD_USES_GPSSHIM := true
 BOARD_GPS_NEEDS_XTRA := true
 BOARD_GPS_LIBRARIES := libloc
 
+# USB mass storage
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
 
-# VER_0_6_X does not search networks
+# WiFi related defines
 WPA_SUPPLICANT_VERSION := VER_0_5_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := bcm4325
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := wireless
-## Tethering is not working now
+WIFI_DRIVER_MODULE_NAME := "wireless"
+WIFI_PRE_LOADER := "qcom_sdio_init"
+WIFI_POST_UNLOADER := "qcom_sdio_deinit"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_HAS_LGE_SOFTAP := true
 
-BOARD_EGL_CFG := device/lge/thunderc/files/lib/egl/egl.cfg
-
+# Kernel
+TARGET_PREBUILT_KERNEL := device/lge/thunderc/files/kernel/$(SUB_MODEL)
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc uart_console=disable recovery=off lge.rev=10
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00000800
@@ -102,18 +122,27 @@ endif
 
 #BOARD_HAS_NO_SELECT_BUTTON := true
 
+TARGET_USES_OVERLAY := true
+
 WITH_DEXPREOPT := false
-WITH_JIT := false
-ENABLE_JSC_JIT := false
+
+# Browser
+#WITH_JIT := true
+#ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 
+# Audio
 BUILD_WITH_FULL_STAGEFRIGHT := true
-TARGET_PROVIDES_LIBAUDIO := true 
+TARGET_PROVIDES_LIBAUDIO := true
+BOARD_USES_AUDIO_LEGACY := true
+
+# RIL
 # TARGET_PROVIDES_LIBRIL = vendor/lge/thunderc/proprietary/system/lib/libril-qc-1.so
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-TARGET_SF_NEEDS_REAL_DIMENSIONS := true
+# FM radio
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+#TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 
 # Charging while powered off
 BOARD_GLOBAL_CFLAGS += -DCHARGERMODE_CMDLINE_NAME='"lge.reboot"' -DCHARGERMODE_CMDLINE_VALUE='"pwroff"'

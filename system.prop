@@ -5,6 +5,9 @@
 persist.mvpdm.ProxyServerAddr=68.28.31.1
 persist.mvpdm.ProxyServerIp=80
 ro.lge.proximity.delay=100
+ro.telephony.ril_class=QualcommNoSimReadyRIL
+ro.telephony.ril_prl=61007
+ro.telephony.no_icc=true
 ro.ril.def.preferred.network=4
 ro.telephony.default_network=4
 rild.libpath=/system/lib/libril-qc-1.so
@@ -27,6 +30,7 @@ ro.lge.vibrator_amp=125
 ## wifi
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=90
+wifi.supplicant_no_update_ctrl=true
 ## opengles 2.0
 ro.opengles.version=131072
 #ro.ril.ecclist=112,911
@@ -114,3 +118,6 @@ ro.ril.hsupa.category=9
 # 0 disable
 # 1 enable
 ro.cdma.nbpcd=1
+
+# enable adbd during first boot
+persist.service.adb.enable=1
