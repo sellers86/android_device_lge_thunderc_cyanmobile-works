@@ -90,6 +90,15 @@ dalvik.vm.execution-mode=int:jit
 debug.sf.hw=1
 windowsmgr.max_events_per_sec=260
 ro.telephony.call_ring.multiple=false
+DEVICE_PROVISIONED=1
+ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2
+ril.subscription.types=NV,RUIM
+debug.sf.hw=1
+ro.sf.compbypass.enable=1
+com.qc.hardware=true
+com.qc.hdmi_out=false
+persist.sys.usb.config=mass_storage,adb
 
 # Common to all CDMA variants (IHO)
 ro.com.google.locationfeatures=1
