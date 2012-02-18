@@ -266,7 +266,6 @@ PRODUCT_COPY_FILES += \
 # Apps
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/packages/app/LatinIME.apk:system/app/LatinIME.apk \
-    vendor/lge/thunderc/packages/app/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
     vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk \
 
 #hwcomposer shit
