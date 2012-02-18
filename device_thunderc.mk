@@ -265,8 +265,9 @@ PRODUCT_COPY_FILES += \
 
 # Apps
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/packages/app/FileManager.apk:system/app/FileManager.apk \
     vendor/lge/thunderc/packages/app/LatinIME.apk:system/app/LatinIME.apk \
-    vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk \
+    vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk
 
 #hwcomposer shit
 PRODUCT_COPY_FILES += \
