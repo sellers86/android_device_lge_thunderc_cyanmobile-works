@@ -122,15 +122,27 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     vendor/lge/thunderc/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
     vendor/lge/thunderc/proprietary/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
+    vendor/lge/thunderc/proprietary/lib/hw/hwcomposer.thunderc.so:system/lib/hw/hwcomposer.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/libmemalloc.so:system/lib/libmemalloc.so \
+    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so
     device/lge/thunderc/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
 
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    vendor/lge/thunderc/proprietary/lib/liboemcamera.so:obj/lib/liboemcamera.so \
     vendor/lge/thunderc/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/lge/thunderc/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/lge/thunderc/proprietary/lib/libmmjpeg.so:obj/lib/libmmjpeg.so \
+    vendor/lge/thunderc/proprietary/lib/libmikecamera.so:obj/lib/libmikecamera.so \
+    vendor/lge/thunderc/proprietary/lib/libmikecamera.so:system/lib/libmikecamera.so \
+    vendor/lge/thunderc/proprietary/lib/libcamera_client.so:obj/lib/libcamera_client.so \
+    vendor/lge/thunderc/proprietary/lib/libcamera_client.so:system/lib/libcamera_client.so \
+    vendor/lge/thunderc/proprietary/lib/libcameraservice.so:obj/lib/libcameraservice.so \
+    vendor/lge/thunderc/proprietary/lib/libcameraservice.so:system/lib/libcameraservice.so \
+    vendor/lge/thunderc/proprietary/lib/hw/camera.thunderc.so:obj/lib/hw/camera.thunderc.so \
+    vendor/lge/thunderc/proprietary/lib/hw/camera.thunderc.so:system/lib/hw/camera.thunderc.so
 
 # Wifi
 PRODUCT_COPY_FILES += \

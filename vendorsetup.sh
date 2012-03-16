@@ -22,3 +22,4 @@
 
 add_lunch_combo thunderc-eng
 add_lunch_combo thunderc-user
+add_lunch_combo cm_thunderc-userdebug
