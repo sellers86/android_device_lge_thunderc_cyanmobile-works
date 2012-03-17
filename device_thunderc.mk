@@ -113,6 +113,7 @@ PRODUCT_COPY_FILES += \
 
 # 3D
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
     vendor/lge/thunderc/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
     vendor/lge/thunderc/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     vendor/lge/thunderc/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
@@ -124,8 +125,11 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/hw/hwcomposer.thunderc.so:system/lib/hw/hwcomposer.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
+    vendor/lge/thunderc/proprietary/lib/libC2D2.so:system/lib/libC2D2.so \
+    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so \
     vendor/lge/thunderc/proprietary/lib/libmemalloc.so:system/lib/libmemalloc.so \
-    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so
+    vendor/lge/thunderc/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    vendor/lge/thunderc/proprietary/lib/libsc-a2xx.so:obj/lib/libsc-a2xx.so \
     device/lge/thunderc/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
 
 # Camera
