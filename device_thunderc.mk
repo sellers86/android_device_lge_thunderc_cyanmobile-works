@@ -125,7 +125,7 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/lib/hw/hwcomposer.thunderc.so:system/lib/hw/hwcomposer.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
     vendor/lge/thunderc/proprietary/lib/libmemalloc.so:system/lib/libmemalloc.so \
-    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so
+    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so \
     device/lge/thunderc/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
 
 # Camera
@@ -279,7 +279,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/packages/app/FileManager.apk:system/app/FileManager.apk \
     vendor/lge/thunderc/packages/app/LatinIME.apk:system/app/LatinIME.apk \
-    vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk
+#    vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk
 
 #hwcomposer shit
 PRODUCT_COPY_FILES += \
