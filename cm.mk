@@ -6,7 +6,7 @@ $(call inherit-product, device/lge/thunderc/full_thunderc.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, vendor/cm/config/cdma.mk)
 
 PRODUCT_DEVICE := thunderc
 PRODUCT_NAME := cm_thunderc
@@ -16,6 +16,8 @@ PRODUCT_MANUFACTURER := LGE
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := OptimusV
+
+TARGET_BOOTANIMATION_NAME := vertical-320x480
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	BUILD_ID=GWK74 \
