@@ -58,15 +58,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
- # Board-specific init
-
 # Board-specific init
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/init.thunderc.rc:root/init.thunderc.rc \
     vendor/lge/thunderc/proprietary/initlogo.rle:root/initlogo.rle \
     vendor/lge/thunderc/proprietary/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
     
-
 # OFFLINE CHARGING
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/bootlogo/bootlogo:root/sbin/bootlogo \
@@ -113,12 +110,23 @@ PRODUCT_COPY_FILES += \
 
 # 3D
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
     vendor/lge/thunderc/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    vendor/lge/thunderc/proprietary/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
     vendor/lge/thunderc/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     vendor/lge/thunderc/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     vendor/lge/thunderc/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
-    vendor/lge/thunderc/proprietary/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
+    vendor/lge/thunderc/proprietary/lib/libC2D2.so:system/lib/libC2D2.so \
     vendor/lge/thunderc/proprietary/lib/libgsl.so:system/lib/libgsl.so \
+    vendor/lge/thunderc/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    vendor/lge/thunderc/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    vendor/lge/thunderc/proprietary/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    vendor/lge/thunderc/proprietary/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     vendor/lge/thunderc/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     vendor/lge/thunderc/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
     vendor/lge/thunderc/proprietary/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
