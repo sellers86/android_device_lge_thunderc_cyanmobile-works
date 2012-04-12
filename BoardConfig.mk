@@ -96,7 +96,7 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/prebuilt/UsbController.cpp
 BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun0/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 # OFFLINE CHARGING
 BOARD_GLOBAL_CFLAGS += -DCHARGERMODE_CMDLINE_NAME='"lge.reboot"' -DCHARGERMODE_CMDLINE_VALUE='"pwroff"'
