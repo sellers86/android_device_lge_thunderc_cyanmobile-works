@@ -3,7 +3,7 @@ $(call inherit-product, device/lge/thunderc/full_thunderc.mk)
 #$(call inherit-product, device/lge/thunderc/device.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/cdma.mk)
