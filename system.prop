@@ -84,7 +84,7 @@ windowsmgr.max_events_per_sec=260
 ro.telephony.call_ring.multiple=false
 
 #DEVICE_PROVISIONED=1
-#ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
+ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
 #mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 #ril.subscription.types=NV,RUIM
 #ro.telephony.ril_class=LGEQualcommRIL
