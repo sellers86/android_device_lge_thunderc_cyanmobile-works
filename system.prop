@@ -93,6 +93,7 @@ ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,iccc
 #com.qc.hardware=true	
 #com.qc.hdmi_out=false
 persist.sys.usb.config=mass_storage,adb
+ro.bt.bdaddr_path=/data/misc/bd_addr
 
 ro.com.google.locationfeatures=1
 ro.cdma.voicemail.number=mine
