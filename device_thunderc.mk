@@ -1,6 +1,6 @@
 $(call inherit-product, build/target/product/full.mk)
 #$(call inherit-product, build/target/product/languages_small.mk)
-$(call inherit-product, vendor/cm/config/common.mk)
+$(call inherit-product, device/lge/thunderc/cm.mk)
 $(call inherit-product-if-exists, vendor/lge/thunderc/thunderc-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay
@@ -52,13 +52,15 @@ PRODUCT_COPY_FILES += \
 #WIFI
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/bin/dhcpcd:system/bin/dhcpcd \
-    
+
+# QCOM init
+PRODUCT_COPY_FILES += \
+    device/lge/thunderc/prebuilt/init.qcom.rc:root/init.qcom.rc \
+    device/lge/thunderc/prebuilt/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # BT startup
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
-
- # Board-specific init
+    device/lge/thunderc/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
@@ -130,6 +132,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
     vendor/lge/thunderc/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     vendor/lge/thunderc/proprietary/lib/liboemcamera.so:obj/lib/liboemcamera.so \
     vendor/lge/thunderc/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
