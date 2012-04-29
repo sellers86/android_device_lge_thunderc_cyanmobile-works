@@ -34,7 +34,7 @@ DLOPEN_LIBMMCAMERA:=1
 #LOCAL_MODULE:= libcamera
 #include $(BUILD_SHARED_LIBRARY)
 
-####### CAMERA.P500 #######
+####### CAMERA.THUNDERC #######
 ## Make camera wrapper
 
 include $(CLEAR_VARS)
@@ -52,5 +52,5 @@ LOCAL_C_INCLUDES       := frameworks/base/services \
                           hardware/libhardware/include \
                           hardware/qcom/display/libgralloc
 
-LOCAL_MODULE := camera.p500
+LOCAL_MODULE := camera.thunderc
 include $(BUILD_SHARED_LIBRARY)
