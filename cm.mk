@@ -1,4 +1,4 @@
-$(call inherit-product, device/lge/thunderc/full_thunderc.mk)
+#$(call inherit-product, device/lge/thunderc/full_thunderc.mk)
 
 #$(call inherit-product, device/lge/thunderc/device.mk)
 
