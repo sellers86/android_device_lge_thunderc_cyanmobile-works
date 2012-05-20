@@ -1,12 +1,7 @@
-$(call inherit-product, build/target/product/full.mk)
-#$(call inherit-product, build/target/product/languages_small.mk)
-$(call inherit-product, vendor/cm/config/common.mk)
-$(call inherit-product-if-exists, vendor/lge/thunderc/thunderc-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay/common device/lge/thunderc/overlay/$(SUB_MODEL)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/lge/thunderc/zImage
+	LOCAL_KERNEL := device/lge/thunderc/files/kernel/$(SUB_MODEL)/zImage
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -14,177 +9,142 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-# Publish that we support the live wallpaper feature.
-PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+PRODUCT_PACKAGES += \
+    gps.thunderc \
+    librs_jni \
+    libmm-omxcore \
+    libOmxCore \
+    bdaddr_read \
+    flash_image \
+    dump_image \
+    erase_image \
+    e2fsck \
+    SpareParts \
+    CMWallpapers \
+    LiveWallpapersPicker \
 
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
-    vendor/lge/thunderc/proprietary/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderc/proprietary/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
-    vendor/lge/thunderc/proprietary/Generic.kl:system/usr/keylayout/Generic.kl \
-
-PRODUCT_COPY_FILES += \
-    device/lge/thunderc/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/lge/thunderc/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    vendor/lge/thunderc/proprietary/etc/init.local.rc:system/etc/init.local.rc \
-    vendor/lge/thunderc/proprietary/etc/init.thunderc.usb.rc:system/etc/init.thunderc.usb.rc \
-    device/lge/thunderc/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/thunderc/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/lge/thunderc/prebuilt/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/lge/thunderc/prebuilt/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-
-# Drew's init stuff
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/etc/init.d/05mountext:system/etc/init.d/05mountext \
-    vendor/lge/thunderc/proprietary/etc/init.d/08dalvik:system/etc/init.d/08dalvik \
-    vendor/lge/thunderc/proprietary/etc/init.d/10apps2sd:system/etc/init.d/10apps2sd \
-    vendor/lge/thunderc/proprietary/etc/init.d/87calibration:system/etc/init.d/87calibration \
-    vendor/lge/thunderc/proprietary/etc/init.d/95zipalign:system/etc/init.d/95zipalign \
-    vendor/lge/thunderc/proprietary/etc/init.d/96tweak:system/etc/init.d/96tweak \
-    vendor/lge/thunderc/proprietary/etc/init.local.rc:system/etc/init.local.rc \
-    vendor/lge/thunderc/proprietary/etc/spn-conf.xml:system/etc/spn-conf.xml \
-    vendor/lge/thunderc/proprietary/etc/profile:system/etc/profile \
-    vendor/lge/thunderc/proprietary/etc/terminfo/l/linux:system/etc/terminfo/l/linux \
-    vendor/lge/thunderc/proprietary/etc/terminfo/u/unknown:system/etc/terminfo/u/unknown \
-
-#WIFI
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/dhcpcd:system/bin/dhcpcd \
-    
-
-# BT startup
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
-
- # Board-specific init
-
-# Board-specific init
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/init.thunderc.rc:root/init.thunderc.rc \
-    vendor/lge/thunderc/proprietary/initlogo.rle:root/initlogo.rle \
-    vendor/lge/thunderc/proprietary/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
-    
-
-# OFFLINE CHARGING
-PRODUCT_COPY_FILES += \
-    device/lge/thunderc/bootlogo/bootlogo:root/sbin/bootlogo \
-    device/lge/thunderc/bootlogo/bootimages/opening_01.rle:root/bootimages/opening_01.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_02.rle:root/bootimages/opening_02.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_03.rle:root/bootimages/opening_03.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_04.rle:root/bootimages/opening_04.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_05.rle:root/bootimages/opening_05.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_06.rle:root/bootimages/opening_06.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_07.rle:root/bootimages/opening_07.rle \
-    device/lge/thunderc/bootlogo/bootimages/opening_08.rle:root/bootimages/opening_08.rle \
-    device/lge/thunderc/chargemode/chargerlogo:root/sbin/chargerlogo \
-    device/lge/thunderc/chargemode/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
-    device/lge/thunderc/chargemode/chargerimages/battery_wait_ani_02.rle:root/chargerimages/battery_wait_ani_02.rle \
+DISABLE_DEXPREOPT := false
 
 # Backlight
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/tsdown:system/bin/tsdown \
-    vendor/lge/thunderc/proprietary/etc/MELFAS_FIRM.bin:system/etc/MELFAS_FIRM.bin
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/lights.thunderc.so:system/lib/hw/lights.thunderc.so \
+
+# Publish that we support the live wallpaper feature.
+PRODUCT_COPY_FILES += \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml \
+
+# Keylayouts
+PRODUCT_COPY_FILES += \
+    device/lge/thunderc/files/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    device/lge/thunderc/files/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keychars/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+
+# Board-specific init
+PRODUCT_COPY_FILES += \
+    device/lge/thunderc/files/init.thunderc.rc:root/init.thunderc.rc \
+    device/lge/thunderc/files/ueventd.thunderc.rc:root/ueventd.thunder.rc \
+    device/lge/thunderc/files/initlogo.rle:root/initlogo.rle \
+    device/lge/thunderc/files/sbin/chargerlogo:root/sbin/chargerlogo \
+    device/lge/thunderc/files/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
+    device/lge/thunderc/files/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
+    device/lge/thunderc/files/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
+    device/lge/thunderc/files/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
+    device/lge/thunderc/files/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
+    device/lge/thunderc/files/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
+    device/lge/thunderc/files/chargerimages/battery_notenough.rle:root/chargerimages/battery_notenough.rle \
+    device/lge/thunderc/files/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
+    device/lge/thunderc/files/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
+    device/lge/thunderc/files/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
+    device/lge/thunderc/files/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
+    device/lge/thunderc/files/etc/init.local.rc:/system/etc/init.local.rc
+
+# Locate vendor bootimage files if present
+# Because these are carrier specific, I've left the default to no logo.
+# Both the images and the bootlogo binary are carrier specific.  Since this should
+# be a pretty simple app to write, it would be nice to get one generic one that'll
+# just pick up every RLE image and display it (along the lines of the existing
+# bootanimation binary from CM).  Eventually a knob to disable this for people
+# who don't want carrier branding should be implemented.
+BOOTIMAGE_FILES := $(wildcard device/lge/thunderc/files/bootimages/$(SUB_MODEL)/*.rle)
+BOOTIMAGE_BINARY := $(wildcard device/lge/thunderc/files/sbin/$(SUB_MODEL)/bootlogo)
+ifneq ($(BOOTIMAGE_BINARY),)
+  ifneq ($(BOOTIMAGE_FILES),)
+    PRODUCT_COPY_FILES += \
+	device/lge/thunderc/files/sbin/$(SUB_MODEL)/bootlogo:root/sbin/bootlogo
+    PRODUCT_COPY_FILES += \
+	$(foreach f,$(BOOTIMAGE_FILES),$(f):root/bootimages/$(notdir $(f)))
+  endif
+endif
+
+# 2D (using proprietary because of poor performance of open source libs)
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/ami304d:system/bin/ami304d \
-    vendor/lge/thunderc/proprietary/lib/hw/sensors.thunderc.so:system/lib/hw/sensors.thunderc.so \
-    
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/sensors.thunderc.so:system/lib/hw/sensors.thunderc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/ami304d:system/bin/ami304d \
 
-# 2D (using proprietary because of poor perfomance of open source libs)
-#PRODUCT_COPY_FILES += \
-#    vendor/lge/thunderc/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-#    vendor/lge/thunderc/proprietary/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
+# GPS
+PRODUCT_COPY_FILES += \
+    device/lge/thunderc/files/etc/loc_parameter.ini:system/etc/loc_parameter.ini \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc_api.so:system/lib/libloc_api.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libgps.so:system/lib/libgps.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc.so:system/lib/libloc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc.so:obj/lib/libloc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libcommondefs.so:system/lib/libcommondefs.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libloc-rpc.so:system/lib/libloc-rpc.so
 
 # 3D
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    vendor/lge/thunderc/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    vendor/lge/thunderc/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    vendor/lge/thunderc/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
-    vendor/lge/thunderc/proprietary/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
-    vendor/lge/thunderc/proprietary/lib/libgsl.so:system/lib/libgsl.so \
-    vendor/lge/thunderc/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    vendor/lge/thunderc/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
-    vendor/lge/thunderc/proprietary/lib/hw/gralloc.thunderc.so:system/lib/hw/gralloc.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/hw/hwcomposer.thunderc.so:system/lib/hw/hwcomposer.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/hw/copybit.thunderc.so:system/lib/hw/copybit.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:system/lib/libmemalloc.so \
-    vendor/lge/thunderc/proprietary/lib/libmemalloc.so:obj/lib/libmemalloc.so
-    device/lge/thunderc/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libgsl.so:system/lib/libgsl.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
 
 # Camera
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/lge/thunderc/proprietary/lib/liboemcamera.so:obj/lib/liboemcamera.so \
-    vendor/lge/thunderc/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/lge/thunderc/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/lge/thunderc/proprietary/lib/libmmjpeg.so:obj/lib/libmmjpeg.so \
-    vendor/lge/thunderc/proprietary/lib/libmikecamera.so:obj/lib/libmikecamera.so \
-    vendor/lge/thunderc/proprietary/lib/libmikecamera.so:system/lib/libmikecamera.so \
-    vendor/lge/thunderc/proprietary/lib/libcamera_client.so:obj/lib/libcamera_client.so \
-    vendor/lge/thunderc/proprietary/lib/libcamera_client.so:system/lib/libcamera_client.so \
-    vendor/lge/thunderc/proprietary/lib/libcameraservice.so:obj/lib/libcameraservice.so \
-    vendor/lge/thunderc/proprietary/lib/libcameraservice.so:system/lib/libcameraservice.so \
-    vendor/lge/thunderc/proprietary/lib/hw/camera.thunderc.so:obj/lib/hw/camera.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/hw/camera.thunderc.so:system/lib/hw/camera.thunderc.so
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
 
-# Wifi
+# WiFi
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/modules/wireless.ko:system/lib/modules/wireless.ko \
-    vendor/lge/thunderc/proprietary/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
-    vendor/lge/thunderc/proprietary/lib/modules/tun.ko:system/lib/modules/tun.ko \
-    vendor/lge/thunderc/proprietary/lib/modules/cifs.ko:system/lib/modules/cifs.ko \
-    vendor/lge/thunderc/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    vendor/lge/thunderc/proprietary/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
-    vendor/lge/thunderc/proprietary/etc/dhcpd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    vendor/lge/thunderc/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
-    vendor/lge/thunderc/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    vendor/lge/thunderc/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin \
-    vendor/lge/thunderc/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
-    vendor/lge/thunderc/proprietary/etc/firmware/wlan/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    vendor/lge/thunderc/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin \
-    vendor/lge/thunderc/proprietary/bin/wl:system/bin/wl
-    
+    device/lge/thunderc/files/kernel/$(SUB_MODEL)/wireless.ko:system/lib/modules/wireless.ko \
+    device/lge/thunderc/files/kernel/$(SUB_MODEL)/tun.ko:system/lib/modules/tun.ko \
+    device/lge/thunderc/files/kernel/$(SUB_MODEL)/cifs.ko:system/lib/modules/cifs.ko \
+    device/lge/thunderc/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
+    device/lge/thunderc/files/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
 
 # SD Card
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/etc/vold.fstab:system/etc/vold.fstab
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/vold.fstab:system/etc/vold.fstab \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
-    vendor/lge/thunderc/proprietary/lib/hw/audio.primary.thunderc.so:system/lib/hw/audio.primary.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
-    vendor/lge/thunderc/proprietary/lib/hw/audio_policy.thunderc.so:system/lib/hw/audio_policy.thunderc.so \
-    vendor/lge/thunderc/proprietary/lib/hw/audio.primary.goldfish.so:system/lib/hw/audio.primary.goldfish.so \
-    vendor/lge/thunderc/proprietary/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
-    vendor/lge/thunderc/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    vendor/lge/thunderc/proprietary/lib/liba2dp.so:system/lib/liba2dp.so \
-    vendor/lge/thunderc/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so \
-    vendor/lge/thunderc/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/lge/thunderc/proprietary/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
+    device/lge/thunderc/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    device/lge/thunderc/files/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
 
 # Device permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
-    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
@@ -194,111 +154,157 @@ PRODUCT_COPY_FILES += \
 
 # LGE services
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/port-bridge:system/bin/port-bridge \
-    vendor/lge/thunderc/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/lge/thunderc/proprietary/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    vendor/lge/thunderc/proprietary/bin/rmt_storage:system/bin/rmt_storage \
-    vendor/lge/thunderc/proprietary/bin/netmgrd:system/bin/netmgrd \
-    vendor/lge/thunderc/proprietary/bin/wiperiface:system/bin/wiperiface \
-
-# Unknown (needed or not?)
-PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/cnd:system/bin/cnd
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lge.vibrator_amp=125 \
-    ro.sf.lcd_density=160 \
-    persist.sys.use_16bpp_alpha
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/qmuxd:system/bin/qmuxd \
 
 # RIL
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/libidl.so:system/lib/libidl.so \
-    vendor/lge/thunderc/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
-    vendor/lge/thunderc/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
-    vendor/lge/thunderc/proprietary/lib/libdsm.so:system/lib/libdsm.so \
-    vendor/lge/thunderc/proprietary/lib/libqueue.so:system/lib/libqueue.so \
-    vendor/lge/thunderc/proprietary/lib/libdiag.so:system/lib/libdiag.so \
-    vendor/lge/thunderc/proprietary/lib/libauth.so:system/lib/libauth.so \
-    vendor/lge/thunderc/proprietary/lib/libcm.so:system/lib/libcm.so \
-    vendor/lge/thunderc/proprietary/lib/libnv.so:system/lib/libnv.so \
-    vendor/lge/thunderc/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
-    vendor/lge/thunderc/proprietary/lib/libwms.so:system/lib/libwms.so \
-    vendor/lge/thunderc/proprietary/lib/libwmsts.so:system/lib/libwmsts.so \
-    vendor/lge/thunderc/proprietary/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-    vendor/lge/thunderc/proprietary/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
-    vendor/lge/thunderc/proprietary/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
-    vendor/lge/thunderc/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    vendor/lge/thunderc/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so \
-    vendor/lge/thunderc/proprietary/lib/libsnd.so:system/lib/libsnd.so \
-    vendor/lge/thunderc/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    vendor/lge/thunderc/proprietary/lib/libdsutils.so:system/lib/libdsutils.so \
-    vendor/lge/thunderc/proprietary/lib/libdll.so:system/lib/libdll.so \
-    vendor/lge/thunderc/proprietary/lib/liblgeat.so:system/lib/liblgeat.so \
-    vendor/lge/thunderc/proprietary/lib/liblgdrm.so:system/lib/liblgdrm.so \
-    vendor/lge/thunderc/proprietary/lib/liblgdrmwbxml.so:system/lib/liblgdrmwbxml.so \
-    vendor/lge/thunderc/proprietary/lib/liblgerft.so:system/lib/liblgerft.so \
-    vendor/lge/thunderc/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
-    vendor/lge/thunderc/proprietary/lib/libdss.so:system/lib/libdss.so \
-    vendor/lge/thunderc/proprietary/lib/libril.so:system/lib/libril.so \
-    vendor/lge/thunderc/proprietary/bin/rild:system/bin/rild \
-    vendor/lge/thunderc/proprietary/bin/qmuxd:system/bin/qmuxd \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/liboncrpc.so:system/lib/liboncrpc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libdsm.so:system/lib/libdsm.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libqueue.so:system/lib/libqueue.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libdiag.so:system/lib/libdiag.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libauth.so:system/lib/libauth.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libcm.so:system/lib/libcm.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libnv.so:system/lib/libnv.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libpbmlib.so:system/lib/libpbmlib.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libwms.so:system/lib/libwms.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libwmsts.so:system/lib/libwmsts.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/liboem_rapi.so:system/lib/liboem_rapi.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libsnd.so:system/lib/libsnd.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libqmi.so:system/lib/libqmi.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libdll.so:system/lib/libdll.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/liblgerft.so:system/lib/liblgerft.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libbcmwl.so:system/lib/libbcmwl.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libdss.so:system/lib/libdss.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libril.so:system/lib/libril.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/rild:system/bin/rild \
 
 # OMX
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    vendor/lge/thunderc/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAacDec.so:system/lib/libOmxAacDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAdpcmDec.so:system/lib/libOmxAdpcmDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAmrDec.so:system/lib/libOmxAmrDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
-    vendor/lge/thunderc/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAacDec.so:system/lib/libOmxAacDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAdpcmDec.so:system/lib/libOmxAdpcmDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAmrDec.so:system/lib/libOmxAmrDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxQcelpDec.so:system/lib/libOmxQcelpDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-# Bluetooth
+# CND
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/bin/BCM4325D1_004.002.004.0218.0248.hcd:system/etc/firmware/BCM4325D1_004.002.004.0218.0248.hcd
-    
-# IDC file
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/cnd:system/bin/cnd
+
+# Kernel modules
+# PRODUCT_COPY_FILES += \
+#    device/lge/thunderc/files/kernel/$(SUB_MODEL)/ext2.ko:system/lib/modules/ext2.ko \
+#    device/lge/thunderc/files/kernel/$(SUB_MODEL)/ext4.ko:system/lib/modules/ext4.ko \
+#    device/lge/thunderc/files/kernel/$(SUB_MODEL)/mbcache.ko:system/lib/modules/mbcache.ko \
+
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc\
-    vendor/lge/thunderc/proprietary/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    device/lge/thunderc/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lge/thunderc/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik \
 
 # Apps
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/packages/app/FileManager.apk:system/app/FileManager.apk \
-    vendor/lge/thunderc/packages/app/LatinIME.apk:system/app/LatinIME.apk \
-    vendor/lge/thunderc/packages/app/LauncherPro.apk:system/app/LauncherPro.apk
+    device/lge/thunderc/files/apps/CarHomeGoogle.apk:system/app/CarHomeGoogle.apk \
+    device/lge/thunderc/files/apps/LauncherPro.apk:system/app/LauncherPro.apk \
 
-#hwcomposer shit
-PRODUCT_COPY_FILES += \
-   vendor/lge/thunderc/proprietary/lib/hw/hwcomposer.default.so:system/lib/hw/hwcomposer.default.so \
+# Let's use our own GPS config file
+PRODUCT_COPY_FILES += device/lge/thunderc/files/etc/gps.conf:system/etc/gps.conf
 
+$(call inherit-product, build/target/product/small_base.mk)
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := thunderc
-PRODUCT_BRAND := LGE
+# We don't need to pull in the languages_full.mk manually because it'll get clobbered anyhow by full.mk
+# mdpi goes last so that the janky default locale/region code can pick a sane default
+PRODUCT_LOCALES += mdpi
+
+PRODUCT_NAME := full_thunderc
 PRODUCT_DEVICE := thunderc
-PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-CDMA_GOOGLE_BASE := android-sprint-us
-CDMA_CARRIER_ALPHA := Virgin_Mobile
-CDMA_CARRIER_NUMERIC := 311490
+ifeq ($(SUB_MODEL),VS700)
+    CDMA_BRAND := virgin_mobile
+    CDMA_GOOGLE_BASE := android-sprint-us
+    CDMA_CARRIER_ALPHA := Virgin_Mobile
+    CDMA_CARRIER_NUMERIC := 311490
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+endif
 
+ifeq ($(SUB_MODEL),VS660)
+    CDMA_BRAND := verizon
+    CDMA_GOOGLE_BASE := android-verizon
+    CDMA_CARRIER_ALPHA := Verizon
+    CDMA_CARRIER_NUMERIC := 310004
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
+endif
+
+ifeq ($(SUB_MODEL),LS670)
+    # We're on Sprint
+    CDMA_BRAND := sprint
+    CDMA_GOOGLE_BASE := android-sprint-us
+    CDMA_CARRIER_ALPHA := Sprint
+    CDMA_CARRIER_NUMERIC := 310120
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+endif
+
+ifeq ($(SUB_MODEL),VM670)
+    # We're on Sprint (well, Virgin Mobile)
+    # http://en.wikipedia.org/wiki/Mobile_Network_Code
+    # Set this properly so that Android Marketplace gets
+    # this right.
+    CDMA_BRAND := virgin_mobile
+    CDMA_GOOGLE_BASE := android-sprint-us
+    CDMA_CARRIER_ALPHA := Virgin_Mobile
+    CDMA_CARRIER_NUMERIC := 311490
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+endif
+
+ifeq ($(SUB_MODEL),US670)
+    # We're on USC (TODO)
+    CDMA_BRAND := sprint
+    CDMA_GOOGLE_BASE := android-sprint-us
+    CDMA_CARRIER_ALPHA := US_Cellular
+    CDMA_CARRIER_NUMERIC := 310066
+endif
+
+ifeq ($(SUB_MODEL),LW690)
+    # We're on Cricket (In progress)
+    CDMA_BRAND :=cricket
+    CDMA_GOOGLE_BASE := android-cricket-us
+    CDMA_CARRIER_ALPHA := Cricket
+    CDMA_CARRIER_NUMERIC := 310016
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0285.0288.hcd
+endif
+
+ifeq ($(SUB_MODEL),MS690)
+    # We're on MetroPCS (TODO)
+    CDMA_BRAND :=metropcs
+    CDMA_GOOGLE_BASE := android-metropcs-us
+    CDMA_CARRIER_ALPHA := MetroPCS
+    CDMA_CARRIER_NUMERIC := 311660
+    BLUETOOTH_FIRMWARE := BCM4325D1_004.002.004.0218.0248.hcd
+endif
+
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/bin/$(BLUETOOTH_FIRMWARE):system/bin/BCM4325.hcd
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.brand=$(CDMA_BRAND) \
     ro.com.google.clientidbase=$(CDMA_GOOGLE_BASE) \
     ro.cdma.home.operator.alpha=$(CDMA_CARRIER_ALPHA) \
     ro.cdma.home.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
