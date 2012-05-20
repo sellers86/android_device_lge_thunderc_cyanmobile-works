@@ -217,6 +217,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/thunderc/files/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik \
+    device/lge/thunderc/files/etc/init.d/10apps2sd:system/etc/init.d/10apps2sd \
 
 # Apps
 PRODUCT_COPY_FILES += \

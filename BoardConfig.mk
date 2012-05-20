@@ -27,6 +27,7 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../device/lge/thunderc/files/brcm_patchram_plus.c
 BOARD_FORCE_STATIC_A2DP := true
 
 # Using GPSSHIM so that we can use the LG/Qualcomm binary blobs because
@@ -38,6 +39,8 @@ BOARD_GPS_LIBRARIES := libloc
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
+BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 # VER_0_6_X does not search networks
 WPA_SUPPLICANT_VERSION := VER_0_5_X
