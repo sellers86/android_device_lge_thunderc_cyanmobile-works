@@ -47,7 +47,7 @@
 **                 function inside the file 
 **                 system/bluetooth/bluedroid/bluetooth.c.
 **
-**                 If the Android system property "ro.bt.bdaddr_path" is
+**                 If the Android system property "ro.bt.bcm_bdaddr_path" is
 **                 set, then the bd_addr will be read from this path.
 **                 This is overridden by --bd_addr on the command line.
 **  
@@ -772,12 +772,12 @@ read_default_bdaddr()
 {
 	int sz;
 	int fd;
-/* TAG JB 03/11/2011 : Read BDADDR from rfkill (who reads bdaddr from smem)
- * Might be removed if we can use the ro.bt.bdaddr_path property instead. More clean
- */
-	char path[PROPERTY_VALUE_MAX] = "/sys/module/board_htcraphael_rfkill/parameters/bdaddr";
-/* End of TAG */
+
+	char path[PROPERTY_VALUE_MAX];
+
 	char bdaddr[18];
+	int len = 17;
+	memset(bdaddr, 0, (len + 1) * sizeof(char));
 
 	property_get("ro.bt.bdaddr_path", path, "");
 	if (path[0] == 0)
@@ -790,19 +790,22 @@ read_default_bdaddr()
 		return;
 	}
 
-	sz = read(fd, bdaddr, sizeof(bdaddr));
+	sz = read(fd, bdaddr, len);
 	if (sz < 0) {
 		fprintf(stderr, "read(%s) failed: %s (%d)", path, strerror(errno),
 				errno);
 		close(fd);
 		return;
-	} else if (sz != sizeof(bdaddr)) {
+	} else if (sz != len) {
 		fprintf(stderr, "read(%s) unexpected size %d", path, sz);
 		close(fd);
 		return;
 	}
 
-	printf("Read default bdaddr of %s\n", bdaddr);
+	if (debug) {
+		printf("Read default bdaddr of %s\n", bdaddr);
+	}
+
 	parse_bdaddr(bdaddr);
 }
 
