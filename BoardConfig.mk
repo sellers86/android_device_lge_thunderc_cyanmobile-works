@@ -89,7 +89,7 @@ ENABLE_JSC_JIT := true
 
 #Enable OpenGL Hardware Acceleration
 #msm7x27: no support for overlay, bypass, or c2d
-BOARD_EGL_CFG := vendor/lge/thunderc/proprietary/$(SUB_MODEL)/lib/egl/egl.cfg
+BOARD_EGL_CFG := vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USE_OVERLAY := false
 TARGET_HAVE_BYPASS := false
