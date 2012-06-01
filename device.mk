@@ -50,10 +50,10 @@ PRODUCT_COPY_FILES += vendor/lge/thunderc/proprietary/$(SUB_MODEL)/init.qcom.bt.
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/usr/keylayout/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/usr/keychars/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keylayout/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/keychars/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin
 
 # configs
 PRODUCT_COPY_FILES += vendor/lge/thunderc/proprietary/$(SUB_MODEL)/media_profiles.xml:system/etc/media_profiles.xml 
