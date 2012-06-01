@@ -1,25 +1,28 @@
-#$(call inherit-product, device/lge/thunderc/full_thunderc.mk)
-
-#$(call inherit-product, device/lge/thunderc/device.mk)
-
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
-
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/cdma.mk)
-
-PRODUCT_DEVICE := thunderc
-PRODUCT_NAME := cm_thunderc
-PRODUCT_BRAND := Virgin_Mobile
-PRODUCT_MODEL := VM670
-PRODUCT_MANUFACTURER := LGE
-
-# Release name and versioning
+# Release name
 PRODUCT_RELEASE_NAME := OptimusV
 
 TARGET_BOOTANIMATION_NAME := vertical-320x480
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+$(call inherit-product, vendor/cm/config/cdma.mk)
+
+#include qcom opensource features
+$(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
+$(call inherit-product, vendor/qcom/opensource/omx/mm-video/Android.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/lge/thunderc/full_thunderc.mk)
+
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := thunderc
+PRODUCT_NAME := cm_thunderc
+PRODUCT_BRAND := Virgin_Mobile
+PRODUCT_MODEL := VM670
+PROUDCT_MANUFACTURER := LGE
+PRODUCT_CHARACTERISTICS := phone
+
+RODUCT_BUILD_PROP_OVERRIDES += \
 	BUILD_ID=GWK74 \
 	PRODUCT_NAME=${PRODUCT_MODEL} \
 	BUILD_DISPLAY_ID="GWK74 $(shell date +%m%d%Y)" \
