@@ -39,11 +39,11 @@ PRODUCT_COPY_FILES += \
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/init.qcom.sh:root/init.qcom.sh \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/init.thunderc.rc:root/init.thunderc.rc \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/initlogo.rle:root/initlogo.rle \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/ueventd.thunderc.rc:root/ueventd.thunderc.rc
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
 
 # BT startup
 PRODUCT_COPY_FILES += vendor/lge/thunderc/proprietary/$(SUB_MODEL)/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
@@ -69,12 +69,12 @@ PRODUCT_COPY_FILES += vendor/lge/thunderc/proprietary/$(SUB_MODEL)/adreno_config
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.d/05mountext:system/etc/init.d/05mountext \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.d/10apps2sd:system/etc/init.d/10apps2sd \
-    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.local.rc:system/etc/init.local.rc \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.thunderc.usb.rc:system/etc/init.thunderc.usb.rc \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/profile:system/etc/profile \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/spn-conf.xml:system/etc/spn-conf.xml \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/terminfo/l/linux:system/etc/terminfo/l/linux \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/terminfo/u/unknown:system/etc/terminfo/u/unknown
+#    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
 
 #WIFI
 PRODUCT_COPY_FILES += \
