@@ -20,7 +20,7 @@ ifeq ($(BOARD_HAVE_BLUETOOTH),true)
   LOCAL_CFLAGS += -DWITH_A2DP
 endif
 
-LOCAL_MODULE := audio_policy.p500
+LOCAL_MODULE := audio_policy.thunderc
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -41,7 +41,7 @@ LOCAL_SRC_FILES += AudioHardware.cpp
 
 LOCAL_CFLAGS += -fno-short-enums
 
-LOCAL_MODULE := audio.primary.p500
+LOCAL_MODULE := audio.primary.thunderc
 include $(BUILD_SHARED_LIBRARY)
 
 
