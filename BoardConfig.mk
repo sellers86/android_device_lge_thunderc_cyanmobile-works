@@ -45,6 +45,7 @@ BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 #Wifi
 BOARD_WPA_SUPPLICANT_DRIVER     := WEXT
 BOARD_WLAN_DEVICE               := bcm4325
+BOARD_WIRELESS_CHIP             := bcm4325
 WPA_SUPPLICANT_VERSION          := VER_0_6_X
 HOSTAPD_VERSION                 := VER_0_6_X
 WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
@@ -119,7 +120,7 @@ BOARD_USE_SKIA_LCDTEXT := true
 
 #Misc
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../vendor/lge/thunderc/proprietary/$(SUB_MODEL)/brcm_patchram_plus.c
+#BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../vendor/lge/thunderc/proprietary/$(SUB_MODEL)/brcm_patchram_plus.c
 
 #OFFLINE CHARGING
 BOARD_GLOBAL_CFLAGS += -DCHARGERMODE_CMDLINE_NAME='"lge.reboot"' -DCHARGERMODE_CMDLINE_VALUE='"pwroff"'
