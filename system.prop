@@ -34,6 +34,7 @@ media.stagefright.enable-qcp=true
 
 persist.mvpdm.ProxyServerAddr=68.28.31.1
 persist.mvpdm.ProxyServerIp=80
+persist.service.adb.enable=1
 persist.sys.strictmode.visual=false
 persist.sys.usb.config=mass_storage,adb
 persist.sys.use_dithering=1
