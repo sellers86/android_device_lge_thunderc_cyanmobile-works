@@ -266,7 +266,9 @@ PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/idc/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc\
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
 
-
+# Apps
+PRODUCT_COPY_FILES += \
+    vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/apps/LauncherPro.apk:system/app/LauncherPro.apk
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=BobZics
 PRODUCT_NAME := full_thunderc
