@@ -298,3 +298,5 @@ on property:service.iq.active=0
 
 # Enable USB mounting of SD card...
 write /sys/module/g_android/parameters/product_id 0x1038
+
+setprop ro.squadzone.build 1
