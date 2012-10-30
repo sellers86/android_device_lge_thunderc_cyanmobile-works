@@ -35,6 +35,20 @@ PRODUCT_PACKAGES += \
 
 DISABLE_DEXPREOPT := false
 
+# CyanMobile
+PRODUCT_COPY_FILES += \
+    vendor/cyanogen/prebuilt/common/app/BMKG.apk:system/app/BMKG.apk \
+    vendor/cyanogen/prebuilt/common/app/ics.apk:system/app/ics.apk \
+    vendor/cyanogen/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/cyanogen/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/cyanogen/prebuilt/common/bin/fix_permissions:system/bin/fix_permissions \
+    vendor/cyanogen/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache \
+    vendor/cyanogen/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh \
+    vendor/cyanogen/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/cyanogen/prebuilt/common/bin/verify_cache_partition_size.sh:system/bin/verify_cache_partition_size.sh \
+    vendor/cyanogen/prebuilt/common/bin/zipalign:system/bin/zipalign \
+    vendor/cyanogen/prebuilt/common/lib/libncurses.so:system/lib/libncurses.so \
+
 # Backlight
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/lights.thunderc.so:system/lib/hw/lights.thunderc.so \
