@@ -123,3 +123,5 @@ dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-data-only=1
 ro.config.hw_menu_unlockscreen=false
 ro.service.swiqi.supported=true
+persist.sys.themeId=ICStransV3 UOT
+persist.sys.themePackageName=com.uotkitchen.theme.icstransv3
