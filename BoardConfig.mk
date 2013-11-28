@@ -118,5 +118,8 @@ BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 
+# Recovery
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/lge/thunderc/recovery/recovery_ui.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/lge/thunderc/recovery/graphics.c
 # Charging while powered off
 BOARD_GLOBAL_CFLAGS += -DCHARGERMODE_CMDLINE_NAME='"lge.reboot"' -DCHARGERMODE_CMDLINE_VALUE='"pwroff"'
